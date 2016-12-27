@@ -15,6 +15,13 @@ public class Solution{
 		//System.out.println("test");
 	}
 
+	/*
+		Method to generate binary tree from String
+		Format: "1 2 3 null 4 null 5"
+				  1
+			  2      3
+		  null 4  null 5
+	*/
 	public static TreeNode generateTree(String str){
 		if(str == null || str.length() == 0) return null;
 		String[] words = str.split(" ");
