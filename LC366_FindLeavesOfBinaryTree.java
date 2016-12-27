@@ -1,8 +1,12 @@
 import java.util.*;
 /*
-	method: topological sort
+	method1: topological sort
+    method2: use the height of each node to detetmine when should be deleted.
 */
 public class LC366_FindLeavesOfBinaryTree{
+    /*
+       ------------- method1 -------------------------
+    */
 	public List<List<Integer>> findLeaves(TreeNode root) {
 		List<List<Integer>> res = new ArrayList<>();
 		if(root == null) return res;
@@ -61,6 +65,41 @@ public class LC366_FindLeavesOfBinaryTree{
 			return this.outDegree - that.outDegree;
 		}
 	}
+    /*
+        ------------- method2 -------------------------
+    */
+    public List<List<Integer>> findLeaves2(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if(root == null) return res;
+        Map<Integer, List<Integer>> map = new TreeMap<>(); // O(nlogn)
+        int height = 1 + Math.max(Helper(root.left, map), Helper(root.right, map)); 
+        List<Integer> list = null;
+        if(map.containsKey(height)){
+            list = map.get(height);
+        }else{
+            list = new ArrayList<>();
+        }
+        list.add(root.val);
+        map.put(height, list);
+        for(Integer num : map.keySet()){
+            res.add(map.get(num));
+        }
+        return res;
+    }
+
+    public int Helper(TreeNode node, Map<Integer, List<Integer>> map){
+        if(node == null) return 0;
+        int height = 1 + Math.max(Helper(node.left, map), Helper(node.right, map)); 
+        List<Integer> list = null;
+        if(map.containsKey(height)){
+            list = map.get(height);
+        }else{
+            list = new ArrayList<>();
+        }
+        list.add(node.val);
+        map.put(height, list);
+        return height;
+    }
 }
 
 

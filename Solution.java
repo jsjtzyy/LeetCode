@@ -5,13 +5,14 @@ public class Solution{
 		LC366_FindLeavesOfBinaryTree lc = new LC366_FindLeavesOfBinaryTree();
 		String tree = "1 2 3 4 5 null 6";
 		TreeNode root = generateTree(tree);
-		List<List<Integer>> res = lc.findLeaves(root);
+		List<List<Integer>> res = lc.findLeaves2(root);
 		for(List<Integer> list : res){
 			for(Integer num : list){
 				System.out.print(num + " ");
 			}
 			System.out.println();
 		}
+		//System.out.println("test");
 	}
 
 	public static TreeNode generateTree(String str){
