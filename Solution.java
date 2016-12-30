@@ -2,17 +2,13 @@ import java.util.*;
 
 public class Solution{
 	public static void main(String[] args){
-		LC366_FindLeavesOfBinaryTree lc = new LC366_FindLeavesOfBinaryTree();
-		String tree = "1 2 3 4 5 null 6";
-		TreeNode root = generateTree(tree);
-		List<List<Integer>> res = lc.findLeaves2(root);
-		for(List<Integer> list : res){
-			for(Integer num : list){
-				System.out.print(num + " ");
-			}
-			System.out.println();
+		LC280_WiggleSort ws = new LC280_WiggleSort();
+		int[] nums = {3, 5, 2, 1, 6, 3};
+		ws.wiggleSort2(nums);
+		for(int i = 0; i < nums.length; ++i){
+			System.out.print(nums[i] + " ");
 		}
-		//System.out.println("test");
+		System.out.println();
 	}
 
 	/*
