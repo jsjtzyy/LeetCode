@@ -2,13 +2,9 @@ import java.util.*;
 
 public class Solution{
 	public static void main(String[] args){
-		LC280_WiggleSort ws = new LC280_WiggleSort();
-		int[] nums = {3, 5, 2, 1, 6, 3};
-		ws.wiggleSort2(nums);
-		for(int i = 0; i < nums.length; ++i){
-			System.out.print(nums[i] + " ");
-		}
-		System.out.println();
+		LC294_FlipGameII flip = new LC294_FlipGameII();
+		String str = "++-++++";
+		System.out.println(flip.canWin(str));
 	}
 
 	/*
