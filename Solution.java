@@ -2,9 +2,17 @@ import java.util.*;
 
 public class Solution{
 	public static void main(String[] args){
-		LC294_FlipGameII flip = new LC294_FlipGameII();
-		String str = "++-++++";
-		System.out.println(flip.canWin(str));
+		int[][] arr = {
+			{1,3,2},{2,4,3},{0,2,-2}
+		};
+		LC370_RangeAddition ra = new LC370_RangeAddition();
+		int length = 5;
+		int[] res = new int[length];
+		res = ra.getModifiedArray(length, arr);
+		for(int i : res){
+			System.out.print(i + " ");
+		}
+		System.out.println();
 	}
 
 	/*
