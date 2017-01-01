@@ -2,17 +2,14 @@ import java.util.*;
 
 public class Solution{
 	public static void main(String[] args){
-		int[][] arr = {
-			{1,3,2},{2,4,3},{0,2,-2}
-		};
-		LC370_RangeAddition ra = new LC370_RangeAddition();
-		int length = 5;
-		int[] res = new int[length];
-		res = ra.getModifiedArray(length, arr);
-		for(int i : res){
-			System.out.print(i + " ");
+		LC369_PlusOneLinkedList pl = new LC369_PlusOneLinkedList();
+		int[] arr = {1, 8,2};
+		ListNode head = pl.generateList(arr);
+		ListNode res = pl.plusOne(head);
+		while(res != null){
+			System.out.print(res.val + " ");
+			res = res.next;
 		}
-		System.out.println();
 	}
 
 	/*
