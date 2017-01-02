@@ -2,14 +2,9 @@ import java.util.*;
 
 public class Solution{
 	public static void main(String[] args){
-		LC369_PlusOneLinkedList pl = new LC369_PlusOneLinkedList();
-		int[] arr = {1, 8,2};
-		ListNode head = pl.generateList(arr);
-		ListNode res = pl.plusOne(head);
-		while(res != null){
-			System.out.print(res.val + " ");
-			res = res.next;
-		}
+		LC451_SortCharByFreq pl = new LC451_SortCharByFreq();
+		String str = "trreeeabaaba";
+		System.out.println(pl.frequencySort(str));
 	}
 
 	/*
