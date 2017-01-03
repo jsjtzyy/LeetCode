@@ -2,11 +2,9 @@ import java.util.*;
 
 public class Solution{
 	public static void main(String[] args){
-		LC245_ShortestWordDistanceIII sl = new LC245_ShortestWordDistanceIII();
-		String[] words = {
-			"practice", "makes", "perfect", "coding", "makes"
-		};
-		System.out.println(sl.shortestWordDistance(words, "coding", "practice"));
+		LC246_StrobogrammaticNumber sl = new LC246_StrobogrammaticNumber();
+		String str = "2";
+		System.out.println(sl.isStrobogrammatic(str));
 	}
 
 	/*
