@@ -2,9 +2,11 @@ import java.util.*;
 
 public class Solution{
 	public static void main(String[] args){
-		LC451_SortCharByFreq pl = new LC451_SortCharByFreq();
-		String str = "trreeeabaaba";
-		System.out.println(pl.frequencySort(str));
+		LC245_ShortestWordDistanceIII sl = new LC245_ShortestWordDistanceIII();
+		String[] words = {
+			"practice", "makes", "perfect", "coding", "makes"
+		};
+		System.out.println(sl.shortestWordDistance(words, "coding", "practice"));
 	}
 
 	/*
