@@ -2,9 +2,9 @@ import java.util.*;
 
 public class Solution{
 	public static void main(String[] args){
-		LC434_NumberOfSegments sl = new LC434_NumberOfSegments();
+		LC276_PaintFence sl = new LC276_PaintFence();
 		String str = "   ";
-		System.out.println(sl.countSegments(str));
+		System.out.println(sl.numWays(6, 2));
 	}
 
 	/*
