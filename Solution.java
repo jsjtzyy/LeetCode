@@ -2,9 +2,9 @@ import java.util.*;
 
 public class Solution{
 	public static void main(String[] args){
-		LC246_StrobogrammaticNumber sl = new LC246_StrobogrammaticNumber();
-		String str = "2";
-		System.out.println(sl.isStrobogrammatic(str));
+		LC434_NumberOfSegments sl = new LC434_NumberOfSegments();
+		String str = "   ";
+		System.out.println(sl.countSegments(str));
 	}
 
 	/*
