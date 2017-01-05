@@ -2,9 +2,10 @@ import java.util.*;
 
 public class Solution{
 	public static void main(String[] args){
-		LC276_PaintFence sl = new LC276_PaintFence();
-		String str = "   ";
-		System.out.println(sl.numWays(6, 2));
+		LC170_TwoSumIII_Design sl = new LC170_TwoSumIII_Design();
+		sl.add(1);
+		sl.add(1);
+		System.out.println(sl.find(2));
 	}
 
 	/*
