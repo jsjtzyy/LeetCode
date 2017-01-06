@@ -2,10 +2,11 @@ import java.util.*;
 
 public class Solution{
 	public static void main(String[] args){
-		LC170_TwoSumIII_Design sl = new LC170_TwoSumIII_Design();
-		sl.add(1);
-		sl.add(1);
-		System.out.println(sl.find(2));
+		LC320_GeneralizedAbbreviation sl = new LC320_GeneralizedAbbreviation();
+		String word = "word";
+		for(String str : sl.generateAbbreviations(word)){
+			System.out.println(str);
+		}
 	}
 
 	/*
