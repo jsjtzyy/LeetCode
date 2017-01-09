@@ -22,11 +22,7 @@ public class LC474_OnesAndZeros {
         	}
         	arr0[k] = cnt0;
         	arr1[k] = cnt1;
-        }
-        /*for(int num : arr0) System.out.print(num + " ");
-        System.out.println();
-        for(int num : arr1) System.out.print(num + " ");  
-        System.out.println(); */     	
+        }    	
         int[][][] dp = new int[len + 1][m + 1][n + 1];
         for(int i = 1; i <= len; ++i){
         	for(int j = 0; j <= m; ++j){
@@ -38,7 +34,6 @@ public class LC474_OnesAndZeros {
         			}
         		}
         	}
-        	//System.out.println(dp[i][m][n]);
         }
         return dp[len][m][n];
     }
