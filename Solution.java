@@ -2,12 +2,10 @@ import java.util.*;
 
 public class Solution{
 	public static void main(String[] args){
-		LC449_SerializeDeserializeBST sl = new LC449_SerializeDeserializeBST();
-		TreeNode root = generateTree("2 1 3");
-		String encode = sl.serialize(root);
-		System.out.println(encode);
-		//TreeNode res = sl.deserialize(encode);
-		//printTree(res);
+		LC474_OnesAndZeros sl = new LC474_OnesAndZeros();
+		String[] array = {"10", "0", "1"};
+		int m = 1, n = 1;
+		System.out.println(sl.findMaxForm(array, m, n));
 	}
 
 	/*
