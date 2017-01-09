@@ -2,11 +2,12 @@ import java.util.*;
 
 public class Solution{
 	public static void main(String[] args){
-		LC320_GeneralizedAbbreviation sl = new LC320_GeneralizedAbbreviation();
-		String word = "word";
-		for(String str : sl.generateAbbreviations(word)){
-			System.out.println(str);
-		}
+		LC449_SerializeDeserializeBST sl = new LC449_SerializeDeserializeBST();
+		TreeNode root = generateTree("2 1 3");
+		String encode = sl.serialize(root);
+		System.out.println(encode);
+		//TreeNode res = sl.deserialize(encode);
+		//printTree(res);
 	}
 
 	/*
@@ -42,5 +43,23 @@ public class Solution{
 			cur = next;
 		}
 		return root;
+	}
+
+	public static void printTree(TreeNode root){
+		String res = null;
+		if(root == null) System.out.println("null");
+		Queue<TreeNode> cur = new LinkedList<>();
+		cur.offer(root);
+		TreeNode tmp = null;
+		Queue<TreeNode> next = null;
+		StringBuilder sb = null;
+		while(!cur.isEmpty()){
+			next = new LinkedList<>();
+			sb = new StringBuilder();
+			while(!cur.isEmpty()){
+				tmp = cur.poll();
+				sb.append(tmp.val + " ");
+			}
+		}
 	}
 }
