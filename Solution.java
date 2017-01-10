@@ -2,10 +2,16 @@ import java.util.*;
 
 public class Solution{
 	public static void main(String[] args){
-		LC474_OnesAndZeros sl = new LC474_OnesAndZeros();
-		String[] array = {"10", "0", "1"};
-		int m = 1, n = 1;
-		System.out.println(sl.findMaxForm(array, m, n));
+		LC254_FactorCombinations sl = new LC254_FactorCombinations();
+		List<List<Integer>> res = sl.getFactors(12);
+		//System.out.println(res.size());
+		for(List<Integer> list : res){
+			for(Integer num : list){
+				System.out.print(num + " ");
+			}
+			System.out.println();
+		}
+		//System.out.println(sl.findMaxForm(array, m, n));
 	}
 
 	/*
