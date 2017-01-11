@@ -2,16 +2,12 @@ import java.util.*;
 
 public class Solution{
 	public static void main(String[] args){
-		LC254_FactorCombinations sl = new LC254_FactorCombinations();
-		List<List<Integer>> res = sl.getFactors(12);
+		LC247_StrobogrammaticNumberII sl = new LC247_StrobogrammaticNumberII();
+		List<String> res = sl.findStrobogrammatic(4);
 		//System.out.println(res.size());
-		for(List<Integer> list : res){
-			for(Integer num : list){
-				System.out.print(num + " ");
-			}
-			System.out.println();
+		for(String str : res){
+			System.out.println(str);
 		}
-		//System.out.println(sl.findMaxForm(array, m, n));
 	}
 
 	/*
