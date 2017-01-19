@@ -4,10 +4,22 @@ public class Solution{
 	public static void main(String[] args){
 		LC247_StrobogrammaticNumberII sl = new LC247_StrobogrammaticNumberII();
 		List<String> res = sl.findStrobogrammatic(4);
-		//System.out.println(res.size());
-		for(String str : res){
-			System.out.println(str);
+		Map<Integer, Character> map = new TreeMap<>();
+		map.put(2, 'c');
+		map.put(1, 'd');
+		map.put(3, 'w');
+		for(Integer num : map.keySet()){
+			System.out.println(num);
 		}
+		System.out.println();
+		map.remove(1);
+		for(Integer num : map.keySet()){
+			System.out.println(num);
+		}
+		//System.out.println(res.size());
+		//for(String str : res){
+			//System.out.println(str);
+		//}
 	}
 
 	/*
