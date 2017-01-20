@@ -8,6 +8,7 @@ public class Solution{
 		map.put(2, 'c');
 		map.put(1, 'd');
 		map.put(3, 'w');
+		map.put(4,'s');
 		for(Integer num : map.keySet()){
 			System.out.println(num);
 		}
