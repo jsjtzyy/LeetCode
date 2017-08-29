@@ -1,0 +1,126 @@
+/******************** String, char, Integer conversion ***************/
+[String to int]:     Integer.parseInt(s);        // return int primitive
+[String to Integer]: Integer.valueOf(s); 	   // return an Integer Object
+[int to String]:     String.valueOf(int)
+[char[] to String]:  String str = new String(chArray);
+[list to array]:     String[] arr = list.toArray(new String[list.size()]);
+[array to list]:     List<String> list = Arrays.asList(arr);
+
+/********************** String ***************************/
+String s = “a*b*c”;
+s.charAt(i);
+s.length();
+s.substring(0, 1);            // [0, 1)
+s.substring(1);               //[1, s.length)
+s.equals(“b”);
+s.compareTo(“b*c*d”);         // return -1 because s comes first in lexicographical order
+s.trim(); 	               // remove tailing and padding spaces
+s.indexOf(“a”);               // return first index of substring “a”   indexOf(substring)
+s.indexOf(‘a’, 2);            // indexOf(int ch, fromIndex), indexOf(String str, fromIndex)
+s.lastIndexOf(‘a’);           // also we can use s.lastIndexOf(String str)
+char[] arr = s.toCharArray();
+String[] arr = s.split(“\\*”) // when delimiter is ‘*’
+
+/********************** StringBuilder ***************************/
+StringBuilder sb = new StringBuilder();
+sb.append(“a”);
+sb.insert(0, “a”);            // sb.insert(int offset, char c) or sb.insert(offset, str)
+sb.deleteCharAt(int index);
+sb.reverse();
+sb.toString();
+
+/********************** Array ***************************/
+int[] arr = new int[10];
+Arrays.sort(arr);
+public void helper(int[] nums);
+helper(new int[]{1, 2});        // initialize array in method
+
+/********************** HashMap (TreeMap), HashSet ***********************/
+HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+map.put('c', 1);
+map.get('c');
+map.remove(‘c’);                                             // remove key and its value
+if (map.containsKey('c')) {                                  // check if key exists
+}
+if (map.containsValue(1)) {                                  // check if value exists
+}
+for (Character d : map.keySet()) {                           // traverse key set
+}
+for (Integer i : map.values()) {                             // traverse value set
+}
+for(Map.Entry<Character, Integer> entry : map.entrySet()){   // traverse key-value pair
+    entry.getKey();
+    entry.getValue();
+}
+map.isEmpty();
+map.size();
+HashSet<Integer> set = new HashSet<Integer>();
+set.add(10);
+set.remove(10);
+if(set.contains(10)){
+}
+set.size();
+set.isEmpty();
+
+TreeMap<Integer, String> map = new TreeMap<>();             // key’s ascending order (default)
+map.put(2, “b”);
+map.put(1, “a”);
+map.put(3, “c”);
+for(String str : map.values())                              // traverse in “a” “b” “c” order
+for(Integer num : map.keySet())			       // traverse in  1, 2, 3 order
+
+TreeMap<String, Integer> map = new TreeMap<>();             // sorted in lexicographical order
+TreeMap<Integer, Integer> map = new TreeMap<>(Collections.reverseOrder()); // descending order
+
+
+/********************** List, ArrayList, LinkedList *************/
+List<Integer> list = new ArrayList<>();
+list.add(14);
+list.add(0, 10);                			// list.add(int index, int value);
+list.get(int index);
+list.remove(list.size() - 1);
+Collections.sort(list);				// ascending order by default
+Collections.sort(list, Collections.reverseOrder());  // descending order
+Collections.sort(list, new Comparator<Integer>() {
+   @Override
+   public int compare(Integer o1, Integer o2) {      // the Integer can be any Object instead
+   return o1 ‐ o2;// 0‐>1
+   // return o2‐o1; 1‐>0
+   }
+});
+
+/********************** Stack, Queue, PriorityQueue ***********************/
+Stack<Integer> stack = new Stack<Integer>();
+stack.push(10);
+stack.pop();
+stack.peek();
+stack.isEmpty();
+stack.size();
+Queue<Integer> q = new LinkedList<Integer>();
+q.offer(10);    					      // q.add() is also acceptable
+q.poll();
+q.peek();
+q.isEmpty();
+q.size();
+PriorityQueue<Integer> pq = new PriorityQueue<Integer>();  // minimum Heap by default
+pq.add(10);
+pq.poll();
+pq.peek();
+pq.isEmpty();
+pq.size();
+class Node implements Comparable<Node>{
+    int x;
+    int y;
+    public Node(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+    @Override
+    public int compareTo(Node that){
+        return this.x - that.x;                            // ascending order / minimum Heap
+        // return that.x - this.x;			      // descending order / maximum Heap
+    }
+}
+PriorityQueue<Node> pq = new PriorityQueue<>();
+
+/********************* std input/output  file read/write ************************/
