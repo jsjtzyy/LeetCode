@@ -35,7 +35,7 @@ Arrays.sort(arr);
 public void helper(int[] nums);
 helper(new int[]{1, 2});        // initialize array in method
 
-/********************** HashMap (TreeMap), HashSet ***********************/
+/********************** HashMap (TreeMap), HashSet (TreeSet)***********************/
 HashMap<Character, Integer> map = new HashMap<Character, Integer>();
 map.put('c', 1);
 map.get('c');
@@ -72,6 +72,11 @@ for(Integer num : map.keySet())			       // traverse in  1, 2, 3 order
 TreeMap<String, Integer> map = new TreeMap<>();             // sorted in lexicographical order
 TreeMap<Integer, Integer> map = new TreeMap<>(Collections.reverseOrder()); // descending order
 
+Set<Integer> treeSet = new TreeSet<>();       // sort in ascending order by default
+treeSet.lower(Integer e);	// return greatest element that is < e, or null if no such element
+treeSet.floor(Integer e);	// return greatest element that is <= e, or null if no such element
+treeSet.ceiling(Integer e);   // return smallest element that is >= e, or null if no such element
+treeSet.higher(Integer e);    // return smallest element that is > e, or null if no such element
 
 /********************** List, ArrayList, LinkedList *************/
 List<Integer> list = new ArrayList<>();
@@ -79,6 +84,8 @@ list.add(14);
 list.add(0, 10);                			// list.add(int index, int value);
 list.get(int index);
 list.remove(list.size() - 1);
+list.set(int index, int val);                        // replaces element at index and returns original
+
 Collections.sort(list);				// ascending order by default
 Collections.sort(list, Collections.reverseOrder());  // descending order
 Collections.sort(list, new Comparator<Integer>() {
@@ -124,3 +131,5 @@ class Node implements Comparable<Node>{
 PriorityQueue<Node> pq = new PriorityQueue<>();
 
 /********************* std input/output  file read/write ************************/
+Scanner in = new Scanner(System.in);
+int n = in.nextInt();
