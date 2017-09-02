@@ -133,3 +133,11 @@ PriorityQueue<Node> pq = new PriorityQueue<>();
 /********************* std input/output  file read/write ************************/
 Scanner in = new Scanner(System.in);
 int n = in.nextInt();
+
+/********************* Atomic Class ******************************************/
+AtomicInteger count = new AtomicInteger(0);
+count.getAndSet();
+count.incrementAndGet();
+count.getAndIncrement();
+count.decrementAndGet();
+count.getAndDecrement();
