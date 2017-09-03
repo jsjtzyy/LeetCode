@@ -1,6 +1,6 @@
 /******************** String, char, Integer conversion ***************/
 [String to int]:     Integer.parseInt(s);        // return int primitive
-[String to Integer]: Integer.valueOf(s); 	   // return an Integer Object
+[String to Integer]: Integer.valueOf(s); 	     // return an Integer Object
 [int to String]:     String.valueOf(int)
 [char[] to String]:  String str = new String(chArray);
 [list to array]:     String[] arr = list.toArray(new String[list.size()]);
@@ -14,7 +14,7 @@ s.substring(0, 1);            // [0, 1)
 s.substring(1);               //[1, s.length)
 s.equals(“b”);
 s.compareTo(“b*c*d”);         // return -1 because s comes first in lexicographical order
-s.trim(); 	               // remove tailing and padding spaces
+s.trim(); 	                  // remove tailing and padding spaces
 s.indexOf(“a”);               // return first index of substring “a”   indexOf(substring)
 s.indexOf(‘a’, 2);            // indexOf(int ch, fromIndex), indexOf(String str, fromIndex)
 s.lastIndexOf(‘a’);           // also we can use s.lastIndexOf(String str)
@@ -169,3 +169,24 @@ future.get(long timeout, TimeUnit unit);        // Retrieves the result of a tas
 synchronized(object){}               // synchronized block (used at code snippet closest to the operation)
 private synchronized void update(){} // synchronized method
 List<Integer> list = Collections.synchronizedList( new ArrayList<>(Arrays.asList(4,3,52))); // used to wrap non-concurrent class
+
+/********************* Concurrent Collection  ************************/
+Map<String,Integer> map = new ConcurrentHashMap<>();
+Queue<Integer> queue = new ConcurrentLinkedQueue<>();
+Deque<Integer> deque = new ConcurrentLinkedDeque<>();
+
+BlockingQueue<Integer> blockingQueue = new LinkedBlockingQueue<>();
+blockingQueue.offer(E e, long timeout, TimeUnit unit);             //Adds item to the queue waiting the specified time, returning false if time elapses before space is available
+blockingQueue.poll(long timeout, TimeUnit unit);                   //Retrieves and removes an item from the queue, waiting the specified time, returning null if the time elapses before the item is available
+
+BlockingDeque<Integer> blockingDeque = new LinkedBlockingDeque<>();
+blockingDeque.offerFirst(E e, long timeout, TimeUnit unit);
+blockingDeque.offerLast(E e, long timeout, TimeUnit unit);
+blockingDeque.pollFirst(long timeout, TimeUnit unit);
+blockingDeque.pollLast(long timeout, TimeUnit unit);
+
+List<Integer> list = new CopyOnWriteArrayList<>(Arrays.asList(4,3,52));
+Set<Integer> set = new CopyOnWriteArraySet<>(); // copy all of their elements to a new underlying structure anytime an element is added, modi ed, or removed from the collection
+
+Map<String, Integer> map = new ConcurrentSkipListMap<>(); // concurrent version for sorted map like treemap
+Set<String> set = new ConcurrentSkipListSet<>();          // concurrent version for sorted set like treeset
