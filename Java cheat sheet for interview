@@ -67,30 +67,30 @@ map.put(2, “b”);
 map.put(1, “a”);
 map.put(3, “c”);
 for(String str : map.values())                              // traverse in “a” “b” “c” order
-for(Integer num : map.keySet())			       // traverse in  1, 2, 3 order
+for(Integer num : map.keySet())			                    // traverse in  1, 2, 3 order
 
 TreeMap<String, Integer> map = new TreeMap<>();             // sorted in lexicographical order
 TreeMap<Integer, Integer> map = new TreeMap<>(Collections.reverseOrder()); // descending order
 
-Set<Integer> treeSet = new TreeSet<>();       // sort in ascending order by default
-treeSet.lower(Integer e);	// return greatest element that is < e, or null if no such element
-treeSet.floor(Integer e);	// return greatest element that is <= e, or null if no such element
-treeSet.ceiling(Integer e);   // return smallest element that is >= e, or null if no such element
-treeSet.higher(Integer e);    // return smallest element that is > e, or null if no such element
+Set<Integer> treeSet = new TreeSet<>();                     // sort in ascending order by default
+treeSet.lower(Integer e);	                                // return greatest element that is < e, or null if no such element
+treeSet.floor(Integer e);	                                // return greatest element that is <= e, or null if no such element
+treeSet.ceiling(Integer e);                                 // return smallest element that is >= e, or null if no such element
+treeSet.higher(Integer e);                                  // return smallest element that is > e, or null if no such element
 
 /********************** List, ArrayList, LinkedList *************/
 List<Integer> list = new ArrayList<>();
 list.add(14);
-list.add(0, 10);                			// list.add(int index, int value);
+list.add(0, 10);                			                // list.add(int index, int value);
 list.get(int index);
 list.remove(list.size() - 1);
-list.set(int index, int val);                        // replaces element at index and returns original
+list.set(int index, int val);                               // replaces element at index and returns original
 
-Collections.sort(list);				// ascending order by default
-Collections.sort(list, Collections.reverseOrder());  // descending order
+Collections.sort(list);				                        // ascending order by default
+Collections.sort(list, Collections.reverseOrder());         // descending order
 Collections.sort(list, new Comparator<Integer>() {
    @Override
-   public int compare(Integer o1, Integer o2) {      // the Integer can be any Object instead
+   public int compare(Integer o1, Integer o2) {             // the Integer can be any Object instead
    return o1 ‐ o2;// 0‐>1
    // return o2‐o1; 1‐>0
    }
@@ -104,12 +104,13 @@ stack.peek();
 stack.isEmpty();
 stack.size();
 Queue<Integer> q = new LinkedList<Integer>();
-q.offer(10);    					      // q.add() is also acceptable
+q.offer(10);    					                                          // q.add() is also acceptable
 q.poll();
 q.peek();
 q.isEmpty();
 q.size();
-PriorityQueue<Integer> pq = new PriorityQueue<Integer>();  // minimum Heap by default
+PriorityQueue<Integer> pq = new PriorityQueue<>();                            // minimum Heap by default
+PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());  // change to maximum Heap
 pq.add(10);
 pq.poll();
 pq.peek();
@@ -125,7 +126,7 @@ class Node implements Comparable<Node>{
     @Override
     public int compareTo(Node that){
         return this.x - that.x;                            // ascending order / minimum Heap
-        // return that.x - this.x;			      // descending order / maximum Heap
+        // return that.x - this.x;			               // descending order / maximum Heap
     }
 }
 PriorityQueue<Node> pq = new PriorityQueue<>();
@@ -141,3 +142,30 @@ count.incrementAndGet();
 count.getAndIncrement();
 count.decrementAndGet();
 count.getAndDecrement();
+
+/********************* ExecutorService (create and manage threads)************************/
+ExecutorService service = new Executor.newSingleThreadExecutor();           // single thread executor
+ExecutorService service = new Executor.newSingleThreadScheduledExecutor();  // single thread can run after delay or periodically
+ExecutorService service = new Executor.newCachedThreadPool();               // if previous thread is available, reuse it. Otherwise, create new thread as needed
+ExecutorService service = new Executor.newFixedThreadPool(int nThreads);    // create a pool with fixed number of threads
+ExecutorService service = new Executor.newScheduledThreadPool(int nThreads);// a pool with fixed number of threads and threads execute after delay or periodically
+
+service.execute(Runnable Object);                 // or lamda expression;  Executes a Runnable task at some point in the future
+Future<?> future = service.submit(Runnable task); // Executes a Runnable task at some point in the future and returns a Future representing the task
+service.shutdown();                               // finish running tasks and then terminate
+service.shutdownNow();                            // stop all running tasks immediately
+
+Future<?> result = service.schedule(Callable<V> callable, long delay, TimeUnit unit);
+Future<?> result = service.schedule(Runnable command, long delay, TimeUnit unit);
+Future<?> result = service.scheduleAtFixedDelay(Runnable command, long initialDelay, long delay, TimeUnit unit); // periodic execution. A fixed delay after completion of last execution
+
+future.isDone();
+future.isCancelled();
+future.cancel();                                // Attempts to cancel execution of the task.
+future.get();                                   // Retrieves the result of a task, waiting endlessly if it is not yet available.
+future.get(long timeout, TimeUnit unit);        // Retrieves the result of a task, waiting the specified amount of time. 
+
+/********************* Synchronize Block/Method  ************************/
+synchronized(object){}               // synchronized block (used at code snippet closest to the operation)
+private synchronized void update(){} // synchronized method
+List<Integer> list = Collections.synchronizedList( new ArrayList<>(Arrays.asList(4,3,52))); // used to wrap non-concurrent class
