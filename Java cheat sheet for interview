@@ -134,6 +134,38 @@ PriorityQueue<Node> pq = new PriorityQueue<>();
 /********************* std input/output  file read/write ************************/
 Scanner in = new Scanner(System.in);
 int n = in.nextInt();
+while(in.hasNext()){
+    String str = in.nextLine();
+}
+
+String inputfile="in.txt";
+String outputfile="out.txt";
+try
+{
+    BufferedReader in = new BufferedReader(new FileReader(inputfile));
+    line = in.readLine();
+    while (line!=null)
+    {
+        // do something with line
+        line=in.readLine();
+    }
+    in.close();              // close the file
+} catch (IOException e)
+{
+    e.printStackTrace();
+}
+
+try{
+    BufferedWriter out = new BufferedWriter(new FileWriter(outputfile));
+    for(String str : map.keySet()){
+         out.write(str + " " + map.get(str));
+         out.newLine();
+    }
+    out.close();           // close the file
+}catch (IOException e)
+{
+    e.printStackTrace();
+}
 
 /********************* Atomic Class ******************************************/
 AtomicInteger count = new AtomicInteger(0);
