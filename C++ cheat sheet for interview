@@ -46,3 +46,7 @@ v.front();                // return first element
 
 stack<int> s;
 queue<int> q;
+
+/************************* swap reference ***********************/
+In bfs, we use two queues in Java. Similarly, we can swap two references in C++
+cur.swap(next);     // swap cur and next reference;
