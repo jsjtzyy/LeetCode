@@ -3,8 +3,40 @@
 /********************** string ***************************/
 
 /********************** array ***************************/
+int nums[10] = {0};
 
 /********************** vector ***************************/
+#include <vector>
+vector<int> v;
+vector<int> v(size, 0);   // create a vector with length of size and initialize all elements to 0;
+
+int val = v[i];           // random access
+v.empty();                // return bool to indicate empty or not
+v.push_back(e);           // insert element to end
+v.clear();
+v.erase(pos);             // delete element at pos
+v.erase(begin, end);      // delete elements in the range [begin, end)
+v.front();                // return first element
+
+                             c.erase(pos)        删除pos位置的数据
+
+                             c.erase(beg,end) 删除[beg,end)区间的数据
+
+                             c.front()         传回第一个数据。
+
+                             c.insert(pos,elem)  在pos位置插入一个elem拷贝
+
+                             c.pop_back()     删除最后一个数据。
+
+                             c.push_back(elem) 在尾部加入一个数据。
+
+                             c.resize(num)     重新设置该容器的大小
+
+                             c.size()         回容器中实际数据的个数。
+
+                             c.begin()           返回指向容器第一个元素的迭代器
+
+                             c.end()             返回指向容器最后一个元素的迭代器
 
 /********************** unordered_map, map ***************************/
 
