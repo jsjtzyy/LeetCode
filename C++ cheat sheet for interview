@@ -1,9 +1,39 @@
 /******************** string, char, integer conversion ***************/
+[int to string]         to_string(num);
+[string to int]         stoi(s);            // i.e.  int val = stoi("1024");
+[char to string]        string(1, ch); 
+[charr array to string] string(charArr);
 
 /********************** string ***************************/
+In C++ string is mutable
+
+string(char[] chArr) or string(char* chArr);  // string constructor
+string(int n, char ch);                       // string constructor with n characters of ch
+
+string str = "1234";
+str[i];                                       // access i th character
+str.size();  or str.length();
+str.substr(start);                            // [start,  )              
+str.substr(start, length);                    // [start, start + length - 1]       str doesn't change 
+
+str.append("abc");
+str.find("ab");                              // return pos where "ab" first occur in str
+
+str.erase(2);                                // erase substring starting from 2.   [2, )    str changes !!!!!!!!!  str = "12"
+str.erase(pos, length);                    // erase length characters starting from pos 
+str.insert(2, "sz");                         // insert characters starting from pos 2.      str changes !!!!!!!!!
+
+str1.compare(str2);                          //
+void reverse(str.begin(), str.end());        // reverse string.       str changes!!!!!!!!!!  no return value
+
+#include <sstream>   // similar to StringBuilder in Java
+sstream ss;
+ss << "year" << 2017;
+ss.str();                                 // convert sstream to string
 
 /********************** array ***************************/
 int nums[10] = {0};
+[array to vector]  vector<int> vec(&nums[0], &nums[10]);
 
 /********************** vector ***************************/
 #include <vector>
@@ -13,30 +43,19 @@ vector<int> v(size, 0);   // create a vector with length of size and initialize 
 int val = v[i];           // random access
 v.empty();                // return bool to indicate empty or not
 v.push_back(e);           // insert element to end
+v.pop_back();             // delete last element
 v.clear();
-v.erase(pos);             // delete element at pos
-v.erase(begin, end);      // delete elements in the range [begin, end)
 v.front();                // return first element
+v.erase(v.begin() + 5);   // delete 6th element;
+v.begin();                // return iterator pointing to first element;    
+v.end();                  // return iterator pointing to null behind last element;
 
-                             c.erase(pos)        删除pos位置的数据
-
-                             c.erase(beg,end) 删除[beg,end)区间的数据
-
-                             c.front()         传回第一个数据。
-
-                             c.insert(pos,elem)  在pos位置插入一个elem拷贝
-
-                             c.pop_back()     删除最后一个数据。
-
-                             c.push_back(elem) 在尾部加入一个数据。
-
-                             c.resize(num)     重新设置该容器的大小
-
-                             c.size()         回容器中实际数据的个数。
-
-                             c.begin()           返回指向容器第一个元素的迭代器
-
-                             c.end()             返回指向容器最后一个元素的迭代器
+for(vector<int>::iterator it = myvector.begin() ; it != myvector.end(); ++it)
+{
+    cout << *it << endl;
+}
+v.insert(pos,elem)  //在pos位置插入一个elem拷贝
+v.resize(num)     //重新设置该容器的大小
 
 /********************** unordered_map, map ***************************/
 
@@ -46,6 +65,8 @@ v.front();                // return first element
 
 stack<int> s;
 queue<int> q;
+q.front();                    // access the first element in queue
+q.pop();                      // no return value
 
 /************************* swap reference ***********************/
 In bfs, we use two queues in Java. Similarly, we can swap two references in C++
