@@ -47,6 +47,7 @@ v.pop_back();             // delete last element
 v.clear();
 v.front();                // return first element
 v.erase(v.begin() + 5);   // delete 6th element;
+v.insert(v.begin(), var)  // insert var in first position
 v.begin();                // return iterator pointing to first element;    
 v.end();                  // return iterator pointing to null behind last element;
 
@@ -54,8 +55,9 @@ for(vector<int>::iterator it = myvector.begin() ; it != myvector.end(); ++it)
 {
     cout << *it << endl;
 }
-v.insert(pos,elem)  //在pos位置插入一个elem拷贝
-v.resize(num)     //重新设置该容器的大小
+
+v.resize(num);            // resize the length of vector
+v.resize(num, val);       // resize vector by using val to padding  (default is 0)
 
 /********************** unordered_map, map ***************************/
 
