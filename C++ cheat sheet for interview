@@ -59,25 +59,77 @@ for(vector<int>::iterator it = myvector.begin() ; it != myvector.end(); ++it)
 v.resize(num);            // resize the length of vector
 v.resize(num, val);       // resize vector by using val to padding  (default is 0)
 
-/********************** unordered_map, map ***************************/
+#include <algorithm>
+sort(v.begin(), v.end());   // sort vector and from min to max by default
 
-/********************** stack, queue ***************************/
+/********************** unordered_map, map, unordered_set, set ***************************/
+#include<map>
+unordered_map<int, string> Map;                       // O(1) or constant time complexity
+map<int, string> treeMap;                             // O(logN) time complexity
+Map[1] = "one";                                       // insert
+iter = Map.find(1);                                   // find by key
+if(iter != Map.end()) cout << iter->second; 
+else cout << "not found"; 
+
+for(iter = Map.begin(); iter != Map.end(); ++iter)
+    cout << iter->first << iter->second <<end;         // traverse
+
+Map.erase("one");                                      // delete
+Map.empty();
+Map.size();
+
+unordered_set<int> Set; 
+Set.insert(val);
+Set.erase(val);
+Set.size();
+Set.empty();
+for(iter = Set.begin(); iter != Set.end(); ++iter)     // traverse
+    cout << *iter <<endl;  
+
+/********************** stack, queue, heap ***************************/
 #include <stack>
 #include <queue>
-
+#include <priority_queue>
 stack<int> s;
 queue<int> q;
+s.push();
+s.pop();
 q.front();                    // access the first element in queue
-q.pop();                      // no return value
+q.pop();                      // does not return element !!!!!
+q.empty();
+
+priority_queue<int> pq;
+pq.push(val);
+pq.top();                     // access first element
+pq.pop();                     // pop out first value, does not return element !!!!!
+
+struct cmp{
+  bool operator()(Node* a, Node* b){
+    return a -> x > b -> x;                 // build min heap
+  }
+};
+
+priority_queue<Node*, vector<Node*>, cmp> pq;
+pq.push(new Node(1, 2));
 
 /************************* swap reference / pointer ***********************/
-In bfs, we use two queues in Java. Similarly, we can swap two references in C++
-cur.swap(next);     // swap cur and next reference;
+In bfs, we use two queues in Java. Similarly, we can swap two containers in C++
+cur.swap(next);     // swap cur and next reference;  两个容器的交换，可以用于map, set, queue, vector等
 
 In cpp, the operator precedence is:  () > []  > *  >  >>  > &
         that is: Function call > Array subscripting > Dereference > Bitwise shift > Bitwise AND
         
 /************************ Node ***************************/
+class ListNode{
+public:
+    int val;
+    ListNode* next;
+    ListNode(int val){
+        this->val = val;
+        this->next = NULL;
+    }
+};
+
 class TreeNode{
 public:
     int val;
@@ -88,4 +140,29 @@ public:
         this->left = NULL;
         this->right = NULL;
     }
-}
+};
+
+class TrieNode{
+public:
+    char ch; 
+    bool isWord;
+    TrieNode* next[26];
+    TrieNode(char ch){
+        this->ch = ch;
+        this->isWord = false;
+        memset(next, 0, sizeof(next));
+    }
+};
+
+class Node{
+public:
+    int x;
+    int y;
+    Node(int x, int y){
+        this->x;
+        this->y;
+    }
+    friend operator < (Node& a, Node& b){
+        return this.x - that.x;
+    }
+};
