@@ -70,6 +70,22 @@ queue<int> q;
 q.front();                    // access the first element in queue
 q.pop();                      // no return value
 
-/************************* swap reference ***********************/
+/************************* swap reference / pointer ***********************/
 In bfs, we use two queues in Java. Similarly, we can swap two references in C++
 cur.swap(next);     // swap cur and next reference;
+
+In cpp, the operator precedence is:  () > []  > *  >  >>  > &
+        that is: Function call > Array subscripting > Dereference > Bitwise shift > Bitwise AND
+        
+/************************ Node ***************************/
+class TreeNode{
+public:
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int val){
+        this->val = val;
+        this->left = NULL;
+        this->right = NULL;
+    }
+}
