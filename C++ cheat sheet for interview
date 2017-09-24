@@ -81,10 +81,14 @@ Map.size();
 unordered_set<int> Set; 
 Set.insert(val);
 Set.erase(val);
+Set.erase(iterator);
 Set.size();
 Set.empty();
 for(iter = Set.begin(); iter != Set.end(); ++iter)     // traverse
-    cout << *iter <<endl;  
+    cout << *iter <<endl;
+
+set<int>::iterator it = Set.upper_bound(val);          //Return iterator pointing to first element after val             > val
+set<int>::iterator it = Set.lower_bound(val);          //Return iterator pointing to first element not goes before val   >= val
 
 /********************** stack, queue, heap ***************************/
 #include <stack>
