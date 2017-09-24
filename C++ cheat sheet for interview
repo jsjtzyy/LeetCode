@@ -169,4 +169,12 @@ public:
     friend operator < (Node& a, Node& b){
         return this.x - that.x;
     }
+    void print(){
+        cout<< this->x << this->y <<endl;
+    }
 };
+/*********************** pointer **********************/
+
+Node* p = new Node(x, y);
+p -> x;                   // access class members;
+p -> print();             // access class member function;
