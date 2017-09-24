@@ -56,11 +56,18 @@ for(vector<int>::iterator it = myvector.begin() ; it != myvector.end(); ++it)
     cout << *it << endl;
 }
 
-v.resize(num);            // resize the length of vector
-v.resize(num, val);       // resize vector by using val to padding  (default is 0)
+v.resize(num);                      // resize the length of vector
+v.resize(num, val);                 // resize vector by using val to padding  (default is 0)
 
 #include <algorithm>
-sort(v.begin(), v.end());   // sort vector and from min to max by default
+sort(v.begin(), v.end());           // sort vector and from min to max by default
+
+struct cmp{
+    bool operator() (int x, int y){
+        return x > y;               // descending order
+    }
+} cmpObj;
+sort(v.begin(), v.end(), cmpObj);   // sort with self-defined comparator
 
 /********************** unordered_map, map, unordered_set, set ***************************/
 #include<map>
@@ -98,22 +105,22 @@ stack<int> s;
 queue<int> q;
 s.push();
 s.pop();
-q.front();                    // access the first element in queue
-q.pop();                      // does not return element !!!!!
+q.front();                                     // access the first element in queue
+q.pop();                                       // does not return element !!!!!
 q.empty();
 
 priority_queue<int> pq;
 pq.push(val);
-pq.top();                     // access first element
-pq.pop();                     // pop out first value, does not return element !!!!!
+pq.top();                                      // access first element
+pq.pop();                                      // pop out first value, does not return element !!!!!
 
 struct cmp{
   bool operator()(Node* a, Node* b){
-    return a -> x > b -> x;                 // build min heap
+    return a -> x > b -> x;                    // build min heap               
   }
 };
 
-priority_queue<Node*, vector<Node*>, cmp> pq;
+priority_queue<Node*, vector<Node*>, cmp> pq;  // NOTE:  the format is different for sort function!!!
 pq.push(new Node(1, 2));
 
 /************************* swap reference / pointer ***********************/
