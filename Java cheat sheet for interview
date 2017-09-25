@@ -18,6 +18,8 @@ s.trim(); 	                  // remove tailing and padding spaces
 s.indexOf(“a”);               // return first index of substring “a”   indexOf(substring)
 s.indexOf(‘a’, 2);            // indexOf(int ch, fromIndex), indexOf(String str, fromIndex)
 s.lastIndexOf(‘a’);           // also we can use s.lastIndexOf(String str)
+s.replaceAll(substr, target); // replace all substr to target in s
+
 char[] arr = s.toCharArray();
 String[] arr = s.split(“\\*”) // when delimiter is ‘*’
 
