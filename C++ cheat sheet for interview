@@ -23,8 +23,9 @@ if (found!=string::npos)  cout << "found";   //
 str.erase(2);                                // erase substring starting from 2.   [2, )    str changes !!!!!!!!!  str = "12"
 str.erase(pos, length);                      // erase length characters starting from pos 
 str.insert(2, "sz");                         // insert characters starting from pos 2.      str changes !!!!!!!!!
+str.replace(pos, len, "newStr");             // replace substring starting from pos with length = len as "newStr"
 
-str1.compare(str2);                          //
+str1.compare(str2);                          // 0 equal; -1 str1 comes first in lexicographic order
 void reverse(str.begin(), str.end());        // reverse string.       str changes!!!!!!!!!!  no return value
 
 #include <sstream>   // similar to StringBuilder in Java
