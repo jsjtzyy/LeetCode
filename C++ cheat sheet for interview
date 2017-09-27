@@ -76,7 +76,7 @@ sort(v.begin(), v.end(), cmpObj);   // sort with self-defined comparator
 unordered_map<int, string> Map;                       // O(1) or constant time complexity
 map<int, string> treeMap;                             // O(logN) time complexity
 Map[1] = "one";                                       // insert
-iter = Map.find(1);                                   // find by key
+unordered_map<int, string>::iter = Map.find(1);       // find by key
 if(iter != Map.end()) cout << iter->second; 
 else cout << "not found"; 
 
