@@ -1,3 +1,12 @@
+/********************** MAX, MIN VALUE *******************************/
+#include<climits>
+INT_MAX = ~(1 << 31)   // for 64bit machine
+INT_MIN = 1 << 31      // for 64bit machine
+UINT_MAX = (uint)(~0)  // 32 bit all equal 1
+LONG_MAX
+LONG_MIN
+ULONG_MAX
+
 /******************** string, char, integer conversion ***************/
 [int to string]         to_string(num);
 [string to int]         stoi(s);            // i.e.  int val = stoi("1024");
