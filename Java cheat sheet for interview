@@ -41,6 +41,7 @@ helper(new int[]{1, 2});        // initialize array in method
 HashMap<Character, Integer> map = new HashMap<Character, Integer>();
 map.put('c', 1);
 map.get('c');
+map.getOrDefault(key, defaultValue);                         // if key exists return value, else return default value
 map.remove(‘c’);                                             // remove key and its value
 if (map.containsKey('c')) {                                  // check if key exists
 }
