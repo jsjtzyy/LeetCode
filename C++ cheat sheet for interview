@@ -50,6 +50,7 @@ int nums[10] = {0};
 #include <vector>
 vector<int> v;
 vector<int> v(size, 0);   // create a vector with length of size and initialize all elements to 0;
+vector<vector<int>> v(N, vector<int>(M, 0)); //initialize N * M 2d vector to zero
 
 int val = v[i];           // random access
 v.empty();                // return bool to indicate empty or not
