@@ -86,7 +86,11 @@ sort(v.begin(), v.end(), cmpObj);   // sort with self-defined comparator
 unordered_map<int, string> Map;                         // O(1) or constant time complexity
 #include<map>
 map<int, string> treeMap;                               // O(logN) time complexity
-Map[1] = "one";                                         // insert
+
+Map[1] = "one";                                         // insert     equivalent to map.put(key, val)
+string str = Map[1];                                    // get        equivalent to map.get(key)
+if(Map.find(1) != Map.end()) cout << Map[1] << endl;    // search key equivalent to map.containsKey(key)
+
 unordered_map<int, string>::iterator it = Map.find(1);  // find by key
 if(iter != Map.end()) cout << iter->second; 
 else cout << "not found"; 
@@ -104,6 +108,7 @@ Set.erase(val);
 Set.erase(iterator);
 Set.size();
 Set.empty();
+if(Set.find(1) != Set.end()) cout << "found" << endl;   // find val  equivalent to set.contains(val)
 for(iter = Set.begin(); iter != Set.end(); ++iter)      // traverse
     cout << *iter <<endl;
 
