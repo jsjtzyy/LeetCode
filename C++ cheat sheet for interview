@@ -90,6 +90,7 @@ map<int, string> treeMap;                               // O(logN) time complexi
 Map[1] = "one";                                         // insert     equivalent to map.put(key, val)
 string str = Map[1];                                    // get        equivalent to map.get(key)
 if(Map.find(1) != Map.end()) cout << Map[1] << endl;    // search key equivalent to map.containsKey(key)
+Map.erase(1);                                           // delete     equivalent to map.remove(key)
 
 unordered_map<int, string>::iterator it = Map.find(1);  // find by key
 if(iter != Map.end()) cout << iter->second; 
