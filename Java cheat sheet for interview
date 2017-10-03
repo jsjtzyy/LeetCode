@@ -1,0 +1,233 @@
+/******************** String, char, Integer conversion ***************/
+[String to int]:     Integer.parseInt(s);        // return int primitive
+[String to Integer]: Integer.valueOf(s); 	     // return an Integer Object
+[int to String]:     String.valueOf(int)
+[char[] to String]:  String str = new String(chArray);
+[list to array]:     String[] arr = list.toArray(new String[list.size()]);
+[array to list]:     List<String> list = Arrays.asList(arr);
+
+/********************** String ***************************/
+String s = “a*b*c”;
+s.charAt(i);
+s.length();
+s.substring(0, 1);            // [0, 1)
+s.substring(1);               //[1, s.length)
+s.equals(“b”);
+s.compareTo(“b*c*d”);         // return -1 because s comes first in lexicographical order
+s.trim(); 	                  // remove tailing and padding spaces
+s.indexOf(“a”);               // return first index of substring “a”   indexOf(substring)
+s.indexOf(‘a’, 2);            // indexOf(int ch, fromIndex), indexOf(String str, fromIndex)
+s.lastIndexOf(‘a’);           // also we can use s.lastIndexOf(String str)
+s.replaceAll(substr, target); // replace all substr to target in s
+
+char[] arr = s.toCharArray();
+String[] arr = s.split(“\\*”) // when delimiter is ‘*’
+
+/********************** StringBuilder ***************************/
+StringBuilder sb = new StringBuilder();
+sb.append(“a”);
+sb.insert(0, “a”);            // sb.insert(int offset, char c) or sb.insert(offset, str)
+sb.deleteCharAt(int index);
+sb.reverse();
+sb.toString();
+
+/********************** Array ***************************/
+int[] arr = new int[10];
+Arrays.sort(arr);
+public void helper(int[] nums);
+helper(new int[]{1, 2});        // initialize array in method
+
+/********************** HashMap (TreeMap), HashSet (TreeSet)***********************/
+HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+map.put('c', 1);
+map.get('c');
+map.getOrDefault(key, defaultValue);                         // if key exists return value, else return default value
+map.remove(‘c’);                                             // remove key and its value
+if (map.containsKey('c')) {                                  // check if key exists
+}
+if (map.containsValue(1)) {                                  // check if value exists
+}
+for (Character d : map.keySet()) {                           // traverse key set
+}
+for (Integer i : map.values()) {                             // traverse value set
+}
+for(Map.Entry<Character, Integer> entry : map.entrySet()){   // traverse key-value pair
+    entry.getKey();
+    entry.getValue();
+}
+map.isEmpty();
+map.size();
+HashSet<Integer> set = new HashSet<Integer>();
+set.add(10);
+set.remove(10);
+if(set.contains(10)){
+}
+set.size();
+set.isEmpty();
+
+TreeMap<Integer, String> map = new TreeMap<>();             // key’s ascending order (default)
+map.put(2, “b”);
+map.put(1, “a”);
+map.put(3, “c”);
+for(String str : map.values())                              // traverse in “a” “b” “c” order
+for(Integer num : map.keySet())			                    // traverse in  1, 2, 3 order
+
+TreeMap<String, Integer> map = new TreeMap<>();             // sorted in lexicographical order
+TreeMap<Integer, Integer> map = new TreeMap<>(Collections.reverseOrder()); // descending order
+
+Set<Integer> treeSet = new TreeSet<>();                     // sort in ascending order by default
+treeSet.lower(Integer e);	                                // return greatest element that is < e, or null if no such element
+treeSet.floor(Integer e);	                                // return greatest element that is <= e, or null if no such element
+treeSet.ceiling(Integer e);                                 // return smallest element that is >= e, or null if no such element
+treeSet.higher(Integer e);                                  // return smallest element that is > e, or null if no such element
+
+/********************** List, ArrayList, LinkedList *************/
+List<Integer> list = new ArrayList<>();
+list.add(14);
+list.add(0, 10);                			                // list.add(int index, int value);
+list.get(int index);
+list.remove(list.size() - 1);
+list.set(int index, int val);                               // replaces element at index and returns original
+
+Collections.sort(list);				                        // ascending order by default
+Collections.sort(list, Collections.reverseOrder());         // descending order
+Collections.sort(list, new Comparator<Integer>() {
+   @Override
+   public int compare(Integer o1, Integer o2) {             // the Integer can be any Object instead
+   return o1 ‐ o2;// 0‐>1
+   // return o2‐o1; 1‐>0
+   }
+});
+
+/********************** Stack, Queue, PriorityQueue ***********************/
+Stack<Integer> stack = new Stack<Integer>();
+stack.push(10);
+stack.pop();
+stack.peek();
+stack.isEmpty();
+stack.size();
+Queue<Integer> q = new LinkedList<Integer>();
+q.offer(10);    					                                          // q.add() is also acceptable
+q.poll();
+q.peek();
+q.isEmpty();
+q.size();
+PriorityQueue<Integer> pq = new PriorityQueue<>();                            // minimum Heap by default
+PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());  // change to maximum Heap
+pq.add(10);
+pq.poll();
+pq.peek();
+pq.isEmpty();
+pq.size();
+class Node implements Comparable<Node>{
+    int x;
+    int y;
+    public Node(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+    @Override
+    public int compareTo(Node that){
+        return this.x - that.x;                            // ascending order / minimum Heap
+        // return that.x - this.x;			               // descending order / maximum Heap
+    }
+}
+PriorityQueue<Node> pq = new PriorityQueue<>();
+
+/************************** Random method *****************************/
+Random rand =new Random();    // initialize Random object
+int i = rand.nextInt(100);    // generate random number in [0, 100)
+float f = rand.nextFloat();   // generate float value in [0, 1)
+double d = rand.nextDouble(); // generate double value in [0.0, 1.0)
+
+/********************* std input/output  file read/write ************************/
+Scanner in = new Scanner(System.in);
+int n = in.nextInt();
+while(in.hasNext()){
+    String str = in.nextLine();
+}
+
+String inputfile="in.txt";
+String outputfile="out.txt";
+try
+{
+    BufferedReader in = new BufferedReader(new FileReader(inputfile));
+    line = in.readLine();
+    while (line!=null)
+    {
+        // do something with line
+        line=in.readLine();
+    }
+    in.close();              // close the file
+} catch (IOException e)
+{
+    e.printStackTrace();
+}
+
+try{
+    BufferedWriter out = new BufferedWriter(new FileWriter(outputfile));
+    for(String str : map.keySet()){
+         out.write(str + " " + map.get(str));
+         out.newLine();
+    }
+    out.close();           // close the file
+}catch (IOException e)
+{
+    e.printStackTrace();
+}
+
+/********************* Atomic Class ******************************************/
+AtomicInteger count = new AtomicInteger(0);
+count.getAndSet();
+count.incrementAndGet();
+count.getAndIncrement();
+count.decrementAndGet();
+count.getAndDecrement();
+
+/********************* ExecutorService (create and manage threads)************************/
+ExecutorService service = new Executor.newSingleThreadExecutor();           // single thread executor
+ExecutorService service = new Executor.newSingleThreadScheduledExecutor();  // single thread can run after delay or periodically
+ExecutorService service = new Executor.newCachedThreadPool();               // if previous thread is available, reuse it. Otherwise, create new thread as needed
+ExecutorService service = new Executor.newFixedThreadPool(int nThreads);    // create a pool with fixed number of threads
+ExecutorService service = new Executor.newScheduledThreadPool(int nThreads);// a pool with fixed number of threads and threads execute after delay or periodically
+
+service.execute(Runnable Object);                 // or lamda expression;  Executes a Runnable task at some point in the future
+Future<?> future = service.submit(Runnable task); // Executes a Runnable task at some point in the future and returns a Future representing the task
+service.shutdown();                               // finish running tasks and then terminate
+service.shutdownNow();                            // stop all running tasks immediately
+
+Future<?> result = service.schedule(Callable<V> callable, long delay, TimeUnit unit);
+Future<?> result = service.schedule(Runnable command, long delay, TimeUnit unit);
+Future<?> result = service.scheduleAtFixedDelay(Runnable command, long initialDelay, long delay, TimeUnit unit); // periodic execution. A fixed delay after completion of last execution
+
+future.isDone();
+future.isCancelled();
+future.cancel();                                // Attempts to cancel execution of the task.
+future.get();                                   // Retrieves the result of a task, waiting endlessly if it is not yet available.
+future.get(long timeout, TimeUnit unit);        // Retrieves the result of a task, waiting the specified amount of time. 
+
+/********************* Synchronize Block/Method  ************************/
+synchronized(object){}               // synchronized block (used at code snippet closest to the operation)
+private synchronized void update(){} // synchronized method
+List<Integer> list = Collections.synchronizedList( new ArrayList<>(Arrays.asList(4,3,52))); // used to wrap non-concurrent class
+
+/********************* Concurrent Collection  ************************/
+Map<String,Integer> map = new ConcurrentHashMap<>();
+Queue<Integer> queue = new ConcurrentLinkedQueue<>();
+Deque<Integer> deque = new ConcurrentLinkedDeque<>();
+
+BlockingQueue<Integer> blockingQueue = new LinkedBlockingQueue<>();
+blockingQueue.offer(E e, long timeout, TimeUnit unit);             //Adds item to the queue waiting the specified time, returning false if time elapses before space is available
+blockingQueue.poll(long timeout, TimeUnit unit);                   //Retrieves and removes an item from the queue, waiting the specified time, returning null if the time elapses before the item is available
+
+BlockingDeque<Integer> blockingDeque = new LinkedBlockingDeque<>();
+blockingDeque.offerFirst(E e, long timeout, TimeUnit unit);
+blockingDeque.offerLast(E e, long timeout, TimeUnit unit);
+blockingDeque.pollFirst(long timeout, TimeUnit unit);
+blockingDeque.pollLast(long timeout, TimeUnit unit);
+
+List<Integer> list = new CopyOnWriteArrayList<>(Arrays.asList(4,3,52));
+Set<Integer> set = new CopyOnWriteArraySet<>(); // copy all of their elements to a new underlying structure anytime an element is added, modi ed, or removed from the collection
+
+Map<String, Integer> map = new ConcurrentSkipListMap<>(); // concurrent version for sorted map like treemap
+Set<String> set = new ConcurrentSkipListSet<>();          // concurrent version for sorted set like treeset
