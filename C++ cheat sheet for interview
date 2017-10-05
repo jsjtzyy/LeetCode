@@ -143,6 +143,16 @@ struct cmp{
 priority_queue<Node*, vector<Node*>, cmp> pq;  // NOTE:  the format is different for sort function!!!
 pq.push(new Node(1, 2));
 
+/************************* rand / srand ***********************************/
+#include<stdlib.h>
+#include<time.h>
+srand((unsigned)time(0));  // initialize rand seed
+(rand()%(b-a))+ a;         // random number from [a, b)
+(rand()%(b-a+1))+ a;       // random number from [a, b]
+(rand()%(b-a))+ a + 1;     // random number from (a, b)
+rand() % len + a;          // [a, len + a)
+rand()/double(RAND_MAX);   // random floating number from [0.0, 1.0]
+
 /************************* swap reference / pointer ***********************/
 In bfs, we use two queues in Java. Similarly, we can swap two containers in C++
 cur.swap(next);     // swap cur and next reference;  两个容器的交换，可以用于map, set, queue, vector等
