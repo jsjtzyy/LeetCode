@@ -26,6 +26,7 @@ str.substr(start);                            // [start,  )
 str.substr(start, length);                    // [start, start + length - 1]       str doesn't change 
 
 str.append("abc");
+str.append(1, 'a');                          // append character
 size_t found = str.find("ab");               // return pos where "ab" first occur in str.  NOTE: the return pos is size_t !!!
 if (found!=string::npos)  cout << "found";   // 
 
@@ -37,7 +38,7 @@ str.replace(pos, len, "newStr");             // replace substring starting from 
 str1.compare(str2);                          // 0 equal; -1 str1 comes first in lexicographic order
 void reverse(str.begin(), str.end());        // reverse string.       str changes!!!!!!!!!!  no return value
 
-#include <sstream>   // similar to StringBuilder in Java
+#include <sstream>                        // similar to StringBuilder in Java
 sstream ss;
 ss << "year" << 2017;
 ss.str();                                 // convert sstream to string
