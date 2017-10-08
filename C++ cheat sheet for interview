@@ -117,6 +117,12 @@ for(iter = Set.begin(); iter != Set.end(); ++iter)      // traverse
 set<int>::iterator it = Set.upper_bound(val);           //Return iterator pointing to first element after val             > val
 set<int>::iterator it = Set.lower_bound(val);           //Return iterator pointing to first element not goes before val   >= val
 
+struct cmp{
+    bool operator()(Node* a, Node* b){
+        return (a->val) < (b->val);
+    }
+};
+set<Node*, cmp> s;                                      //intialize ordered set with comparator
 /********************** stack, queue, heap ***************************/
 #include <stack>
 #include <queue>
