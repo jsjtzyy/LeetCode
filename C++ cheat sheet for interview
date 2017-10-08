@@ -148,6 +148,12 @@ struct cmp{
 
 priority_queue<Node*, vector<Node*>, cmp> pq;  // NOTE:  the format is different for sort function!!!
 pq.push(new Node(1, 2));
+/************************* pair / make_pair *******************************/
+#include <utility>
+pair<int, int> pr;
+pr = make_pair(2, 3);             // generate pair
+cout << pr.first << endl;         // access first value
+cout << pr.second << endl;        // access second value
 
 /************************* rand / srand ***********************************/
 #include<stdlib.h>
