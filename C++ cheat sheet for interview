@@ -123,7 +123,8 @@ struct cmp{
     }
 };
 set<Node*, cmp> s;                                      //intialize ordered set with comparator
-/********************** stack, queue, heap ***************************/
+
+/********************** stack, queue, heap, deque ***************************/
 #include <stack>
 #include <queue>
 #include <priority_queue>
@@ -148,6 +149,13 @@ struct cmp{
 
 priority_queue<Node*, vector<Node*>, cmp> pq;  // NOTE:  the format is different for sort function!!!
 pq.push(new Node(1, 2));
+
+#include<deque>
+deque<int> dq (2,0);
+dq.push_back(1);
+dq.push_front(-1);
+cout << dq[0] << endl;
+
 /************************* pair / make_pair *******************************/
 #include <utility>
 pair<int, int> pr;
