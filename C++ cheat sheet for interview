@@ -130,6 +130,7 @@ set<Node*, cmp> s;                                      //intialize ordered set 
 #include <priority_queue>
 stack<int> s;
 queue<int> q;
+s.top();                                       // access the top element
 s.push();
 s.pop();
 q.front();                                     // access the first element in queue
