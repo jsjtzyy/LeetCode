@@ -70,7 +70,8 @@ for(vector<int>::iterator it = myvector.begin() ; it != myvector.end(); ++it)
 }
 
 v.resize(num);                      // resize the length of vector
-v.resize(num, val);                 // resize vector by using val to padding  (default is 0)
+v.resize(num, val);                 // resize vector by using val to padding  (default is 0);
+                                    // resize(num, val) can be used for constructor in class;
 
 #include <algorithm>
 sort(v.begin(), v.end());           // sort vector and from min to max by default
