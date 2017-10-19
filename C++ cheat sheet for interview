@@ -175,6 +175,14 @@ srand((unsigned)time(0));  // initialize rand seed
 rand() % len + a;          // [a, len + a)
 rand()/double(RAND_MAX);   // random floating number from [0.0, 1.0]
 
+/************************* math ***********************************/
+#include <math.h>
+M_PI                       // pi in math
+cos(theta * M_PI / 180.0)  // cos takes angle in rad as input
+acos(-1) = M_PI;           // acos output is angle in rad
+sqrt()                     // compute square root
+round()                    // round floating value to closest integer
+
 /************************* swap reference / pointer ***********************/
 In bfs, we use two queues in Java. Similarly, we can swap two containers in C++
 cur.swap(next);     // swap cur and next reference;  两个容器的交换，可以用于map, set, queue, vector等
