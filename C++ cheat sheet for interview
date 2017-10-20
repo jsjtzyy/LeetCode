@@ -183,6 +183,12 @@ acos(-1) = M_PI;           // acos output is angle in rad
 sqrt()                     // compute square root
 round()                    // round floating value to closest integer
 
+/************************* Format Output ***********************************/
+#include <iomanip>
+const double value = 12.3456789;
+cout << setprecision(4) << value << endl;   // 改成4精度，所以输出为12.35
+cout << fixed << setprecision(4) << value << endl; // 加了fixed意味着是固定点方式显示，所以这里的精度指的是小数位，输出为12.3457
+
 /************************* swap reference / pointer ***********************/
 In bfs, we use two queues in Java. Similarly, we can swap two containers in C++
 cur.swap(next);     // swap cur and next reference;  两个容器的交换，可以用于map, set, queue, vector等
