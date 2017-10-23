@@ -39,9 +39,17 @@ str1.compare(str2);                          // 0 equal; -1 str1 comes first in 
 void reverse(str.begin(), str.end());        // reverse string.       str changes!!!!!!!!!!  no return value
 
 #include <sstream>                        // similar to StringBuilder in Java
-sstream ss;
+stringstream ss;
 ss << "year" << 2017;
 ss.str();                                 // convert sstream to string
+
+string input = "abc,def,ghi";             // to implement the function like split(",") in Java
+istringstream ss(input);
+string token;
+
+while(getline(ss, token, ',')) {            // if the delimiter is '\' we should use '\\' to explicitly specify the delimiter
+    cout << token << '\n';
+}
 
 /********************** array ***************************/
 int nums[10] = {0};
