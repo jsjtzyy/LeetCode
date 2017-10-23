@@ -40,7 +40,7 @@ void reverse(str.begin(), str.end());        // reverse string.       str change
 
 #include <sstream>                        // similar to StringBuilder in Java
 stringstream ss;
-ss << "year" << 2017;
+ss << "year" << ' ' << 2017;              // accept char, string and number(int, float, double)
 ss.str();                                 // convert sstream to string
 
 string input = "abc,def,ghi";             // to implement the function like split(",") in Java
