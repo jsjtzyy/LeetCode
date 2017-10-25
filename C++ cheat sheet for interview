@@ -182,7 +182,9 @@ srand((unsigned)time(0));  // initialize rand seed
 (rand()%(b-a))+ a + 1;     // random number from (a, b)
 rand() % len + a;          // [a, len + a)
 rand()/double(RAND_MAX);   // random floating number from [0.0, 1.0]
-
+// c++ 11 supports default_random_engine
+default_random_engine eng;
+eng() % len;               // [0, len)
 /************************* math ***********************************/
 #include <math.h>
 M_PI                       // pi in math
