@@ -193,6 +193,7 @@ cos(theta * M_PI / 180.0)  // cos takes angle in rad as input
 acos(-1) = M_PI;           // acos output is angle in rad
 sqrt()                     // compute square root
 round()                    // round floating value to closest integer
+pow(n, k);                 // compute n^k
 
 /************************* Format Output ***********************************/
 #include <iomanip>
