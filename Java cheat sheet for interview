@@ -87,8 +87,13 @@ treeSet.ceiling(Integer e);                                 // return smallest e
 treeSet.higher(Integer e);                                  // return smallest element that is > e, or null if no such element
 
 /********************** LinkedHashMap, LinkedHashSet *************/
-Map<>
-
+Map<Integer,String> map = new LinkedHashMap<>();
+map.put(1, "first");
+map.put(2, "second");
+map.put(3, "third");           
+for(Map.Entry<Integer,String> entry : map.entrySet())
+    System.out.println(entry.getKey(), entry.getValue());   // print order: 1, 2, 3
+Set<Integer> set = new LinkedHashSet<>();
 
 /********************** List, ArrayList, LinkedList *************/
 List<Integer> list = new ArrayList<>();
