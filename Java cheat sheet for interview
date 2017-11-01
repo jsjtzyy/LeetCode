@@ -30,6 +30,7 @@ sb.insert(0, “a”);            // sb.insert(int offset, char c) or sb.insert(
 sb.deleteCharAt(int index);
 sb.reverse();
 sb.toString();
+sb.length();                  // return the number of characters in sb, similar to str.length()
 
 /********************** Array ***************************/
 int[] arr = new int[10];
