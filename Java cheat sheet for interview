@@ -155,6 +155,15 @@ int i = rand.nextInt(100);    // generate random number in [0, 100)
 float f = rand.nextFloat();   // generate float value in [0, 1)
 double d = rand.nextDouble(); // generate double value in [0.0, 1.0)
 
+/************************** Math *****************************/
+Math.pow(double x, double y); // return x^y 
+Math.round(float a);          // returns the closest int to the argument
+Math.abs(int/float/doubld val);
+Math.sqrt();
+Math.sin(double rad);         // input is rad not angle
+Math.PI;
+Math.E;
+
 /************************** Lamda expression *****************************/
 
 
