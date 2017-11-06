@@ -80,6 +80,7 @@ treeMap.lowerKey(k);                                        // return the greate
 treeMap.floorKey(k);                                        //return the greatest key less than or equal to key
 treeMap.higherKey(k);                                       // return the greatest key strictly larger than the given key, 
 treeMap.ceilingKey(k);                                      //return the greatest key larger than or equal to key
+treeMap.firstKey();                                         //returns the first (lowest) key currently in this map.
 
 Set<Integer> treeSet = new TreeSet<>();                     // sort in ascending order by default
 treeSet.lower(Integer e);	                                // return greatest element that is < e, or null if no such element
