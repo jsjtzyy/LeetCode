@@ -86,6 +86,8 @@ treeSet.lower(Integer e);	                                // return greatest ele
 treeSet.floor(Integer e);	                                // return greatest element that is <= e, or null if no such element
 treeSet.ceiling(Integer e);                                 // return smallest element that is >= e, or null if no such element
 treeSet.higher(Integer e);                                  // return smallest element that is > e, or null if no such element
+treeSet.first();                                            // return the first element in the treeset (if min set, return minimum element)
+treeSet.last();                                             // return the last element in the treeset
 
 /********************** LinkedHashMap, LinkedHashSet *************/
 Map<Integer,String> map = new LinkedHashMap<>();
