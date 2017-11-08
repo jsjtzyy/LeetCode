@@ -117,7 +117,7 @@ Collections.sort(list, new Comparator<Integer>() {
    }
 });
 
-/********************** Stack, Queue, PriorityQueue ***********************/
+/********************** Stack, Queue, PriorityQueue, Deque ***********************/
 Stack<Integer> stack = new Stack<Integer>();
 stack.push(10);
 stack.pop();
@@ -151,6 +151,15 @@ class Node implements Comparable<Node>{
     }
 }
 PriorityQueue<Node> pq = new PriorityQueue<>();
+
+import java.util.Deque; 
+Deque<Integer> dq = new ArrayDeque<Integer>(); 
+dq.addFirst();  //  dq.offerFirst();
+dq.addLast();   //  dq.offerLast();
+dq.peekFirst(); // 
+dq.peekLast();
+dq.pollFirst(); //  dq.removeFirst();
+dq.pollLast();  //  dq.removeLast();
 
 /************************** Random method *****************************/
 Random rand =new Random();    // initialize Random object
