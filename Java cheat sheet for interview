@@ -35,6 +35,7 @@ sb.length();                  // return the number of characters in sb, similar 
 /********************** Array ***************************/
 int[] arr = new int[10];
 Arrays.sort(arr);
+Arrays.fill(arr, -1);           // initialize all array elements with value -1
 public void helper(int[] nums);
 helper(new int[]{1, 2});        // initialize array in method
 
