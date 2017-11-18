@@ -6,4 +6,5 @@
 
 407 Trapping rain water II (priority queue from outer boundary to inner)
 
-
+214 Shortest Palindrome (Manacher Algorithm changing update condition until cover left boundary)
+    UVa 11151 - Longest Palindrome (dynamic programming)
