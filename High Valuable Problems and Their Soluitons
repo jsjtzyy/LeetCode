@@ -1,10 +1,13 @@
-240 Search 2D Matrix II (start from top right and move left or move down)
+LC240 Search 2D Matrix II (start from top right and move left or move down)
 
-324 Wiggle Sort II    (index mapping)
+LC324 Wiggle Sort II    (index mapping)
 
-218 The skyline problem (line sweeping algorithm)
+LC218 The skyline problem (line sweeping algorithm)
 
-407 Trapping rain water II (priority queue from outer boundary to inner)
+LC407 Trapping rain water II (priority queue from outer boundary to inner)
 
-214 Shortest Palindrome (Manacher Algorithm changing update condition until cover left boundary)
+LC214 Shortest Palindrome (Manacher Algorithm changing update condition until cover left boundary)
     UVa 11151 - Longest Palindrome (dynamic programming)
+
+LC330 Patching Array (greedy, add miss number to extend cover range)
+
