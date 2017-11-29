@@ -11,3 +11,5 @@
 6. Implement HashMap, put，get and remove  (multithreads access using lock slicing ＋ CAS)
 
 7.  IPC，ITC
+
+8.  Exception
