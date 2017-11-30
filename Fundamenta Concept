@@ -10,6 +10,6 @@
 
 6. Implement HashMap, put，get and remove  (multithreads access using lock slicing ＋ CAS)
 
-7.  IPC，ITC
+7.  IPC，ITC   IPC = Inter-Process Communication,  ITC = Inter-Thread Communication
 
 8.  Exception
