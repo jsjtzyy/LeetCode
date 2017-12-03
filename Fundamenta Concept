@@ -3,7 +3,12 @@
     it also allows the system to efficiently allocate and re-allocate portions of memory to different processes.
     Virtual maps memory addresses used by a program, called virtual addresses, into physical addresses in computer memory.
     Swap infrequenty data into mememory on disk.
+    
    TLB = Translation Lookaside Buffer. used to map virtual address to physical address quickly
+   In a cached system, the base addresses of the last few referenced pages is maintained in registers called the TLB that aids in faster lookup. 
+   TLB contains those page-table entries that have been most recently used. 
+   Normally, each virtual memory reference causes 2 physical memory accesses- one to fetch appropriate page-table entry, and one to fetch the desired data. 
+   Using TLB in-between, this is reduced to just one physical memory access in cases of TLB-hit.
    
    Resident Set is the portion of memory occupied by a process that is held in main memory (RAM). The rest of the occupied memory exists in the swap space or file system, either because some parts of the occupied memory were paged out, or because some parts of the executable were never loaded
    Thrashing
@@ -74,3 +79,14 @@
     The hardware decides the page size; The segment size is specified by the user;
     refer to http://techdifferences.com/difference-between-paging-and-segmentation-in-os.html
     
+15. Gateway
+    Gateway is a passage to connect two networks together that may work upon different networking models. 
+    They basically works as the messenger agents that take data from one system, interpret it, and transfer it to another system. 
+    Gateways are also called protocol converters and can operate at any network layer. 
+    Gateways are generally more complex than switch or router.
+    
+16. Create threads in Java: extends thread class or implement Runnable interface?
+    (1) If we extend the Thread class, our class cannot extend any other class because Java doesn’t support multiple inheritance. 
+    But, if we implement the Runnable interface, our class can still extend other base classes.
+    (2) We can achieve basic functionality of a thread by extending Thread class because it provides some inbuilt methods like yield(), 
+    interrupt() etc. that are not available in Runnable interface.
