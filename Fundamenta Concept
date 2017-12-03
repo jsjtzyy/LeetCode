@@ -1,9 +1,26 @@
 1. virtual memory
+    Virtual memory not only keeps processes safe (because one process cannot directly read or modify another process's memory) 
+    it also allows the system to efficiently allocate and re-allocate portions of memory to different processes.
+    Virtual maps memory addresses used by a program, called virtual addresses, into physical addresses in computer memory.
+    Swap infrequenty data into mememory on disk.
+   TLB = Translation Lookaside Buffer. used to map virtual address to physical address quickly
+   
+   Resident Set is the portion of memory occupied by a process that is held in main memory (RAM). The rest of the occupied memory exists in the swap space or file system, either because some parts of the occupied memory were paged out, or because some parts of the executable were never loaded
+   Thrashing
+   when the required page is not in resident set, OS has to access virtual memory or disk. The computer spends an unsuitably large amount of time transferring pages to and from a backing store, hence slowing down useful work.
 
 2. write-through v.s. write-back cache
-
+   write-through: write cache and memory both;
+   write-back: initially, writing is done only to the cache. The write to the backing store is postponed until the cache blocks containing the data are about to be modified/replaced by new content.
+   
 3. process v.s. thread
-
+    (1) Definition:  a process is an instance of a computer program that is being executed. A process contains one or more threads.
+                     a thread is the smallest sequence of programmed instructions that can be managed independently by a scheduler
+    (2) Difference: Process runs in separate memory spaces, and threads run in shared memory spaces;
+                    Process has independent address space and is independent on other processes
+                    Thread switch is light-weight compared with process switch
+                    Processes provide better isolation between actions
+    
 4. Hadoop / MapReduce / Pig 
 
 5. RAID
@@ -11,5 +28,24 @@
 6. Implement HashMap, put，get and remove  (multithreads access using lock slicing ＋ CAS)
 
 7.  IPC，ITC   IPC = Inter-Process Communication,  ITC = Inter-Thread Communication
+    A process cannot access memory inside another process. Processes can communicate by:
+    (1) Network packeges
+    (2) Files
+    (3) Pipes
+    (4) Shared memory
+    (5) Semaphores
+    (6) Corba messages (Java)
+    (7) RPC calls
+    
+    Threads can communicate by accessing the memory in the same processes. For programmers, use wait(), notify() and notifyAll() for communication.
 
 8.  Exception
+    Why use exception in Java (benefits)?
+      (1) Separating Error-Handling Code from "Regular" Code
+      (2) Propagating Errors Up the Call Stack
+      (3) Grouping and Differentiating Error Types
+      
+9. DeadLock: (1) mutual exclusion, (2) hold and wait, (3) no preemption, (4) Circular wait
+          avoid deadlock:  make sure access critical section in the same order; introduce preemption
+
+10. 
