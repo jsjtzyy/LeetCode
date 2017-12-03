@@ -24,7 +24,10 @@
 4. Hadoop / MapReduce / Pig 
 
 5. RAID
-
+    Redundant Array of Inexpensive (or Independent) Disks is a data storage virtualization technology that combines multiple physical disk drive components into one or more logical units for the purposes of data redundancy, performance improvement, or both.
+    There were five RAID levels: RAID1, RAID2, RAID3, RAID4, RAID5
+    
+    
 6. Implement HashMap, put，get and remove  (multithreads access using lock slicing ＋ CAS)
 
 7.  IPC，ITC   IPC = Inter-Process Communication,  ITC = Inter-Thread Communication
@@ -48,4 +51,12 @@
 9. DeadLock: (1) mutual exclusion, (2) hold and wait, (3) no preemption, (4) Circular wait
           avoid deadlock:  make sure access critical section in the same order; introduce preemption
 
-10. 
+10. At-least once  v.s. Exactly once
+
+11. SQL v.s. NoSql
+    SQL databases represent data in form of tables; NoSql databases are the collection of key-value pair, documents, graph databases or wide-column stores which do not have standard schema
+    NoSql may not require fixed table schemas, usually avoid join operations, and typically scale horizontally. Academic researchers typically refer to these databases as structured storage,
+    SQL databases have predefined schema whereas NoSQL databases have dynamic schema for unstructured data.
+    SQL databases are vertically scalable whereas the NoSQL databases are horizontally scalable. 
+    
+12. Java Synchronization
