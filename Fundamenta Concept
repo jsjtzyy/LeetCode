@@ -60,3 +60,17 @@
     SQL databases are vertically scalable whereas the NoSQL databases are horizontally scalable. 
     
 12. Java Synchronization
+
+13. TCP vs UDP
+    Http uses TCP, DNS uses UDP;  TCP reliable, connetion; UDP is connectionless. 
+    TCP has re-transmission mechanism, Flow-control and Congestion control;
+    TCP has more overhead when using three-way handshake to establish or close the connection;
+    UDP light-weight and high efficient but not reliable.
+    TCP is used if the size of the packet goes over 512 bytes.
+    
+14. Page and Segmentation
+    a page is a fixed-sized block whereas, a segment is a variable-sized block;
+    Paging may lead to internal fragmentation; Segmentation may lead to external fragmentation.
+    The hardware decides the page size; The segment size is specified by the user;
+    refer to http://techdifferences.com/difference-between-paging-and-segmentation-in-os.html
+    
