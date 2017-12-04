@@ -25,8 +25,19 @@
                     Process has independent address space and is independent on other processes
                     Thread switch is light-weight compared with process switch
                     Processes provide better isolation between actions
-    
-4. Hadoop / MapReduce / Pig 
+    (3)context switch:
+                    process switch: when you change virtual memory spaces, the processor's Translation Lookaside Buffer (TLB) or equivalent gets flushed making memory accesses much more expensive for a while.
+                                    It requires saving all of the state of the currently executing program, including its register state, associated kernel state, and all of its virtual memory configuration
+                    thread switch: less context you need to save/load. Specifically, memory is shared. The kernel doesn't have to do any page outs of dirty pages
+    (4)process creation:
+                <>Load code and data into memory.
+                <>Create and initialize process control block.
+                <>Create first thread with call stack.
+                <>Provide initial values for "saved state" for the thread
+                <>Make process known to dispatcher; dispatcher "resumes" to beginning of process.
+
+4. Dispather
+    The dispatcher is inner-most portion of the OS that runs processes:
 
 5. RAID
     Redundant Array of Inexpensive (or Independent) Disks is a data storage virtualization technology that combines multiple physical disk drive components into one or more logical units for the purposes of data redundancy, performance improvement, or both.
@@ -46,7 +57,11 @@
     (7) RPC calls
     
     Threads can communicate by accessing the memory in the same processes. For programmers, use wait(), notify() and notifyAll() for communication.
-
+    (1) wait(), notify(), notifyAll() are used together with synchronized; 
+    (2) cond.await(), cond.signal(), cond.signalAll() are used together with lock;
+    (3) BlockingQueue (producer and consumer). Two methods: put(E, e), take(), if queue is full or empty, block the thread
+    
+    
 8.  Exception
     Why use exception in Java (benefits)?
       (1) Separating Error-Handling Code from "Regular" Code
@@ -65,7 +80,22 @@
     SQL databases are vertically scalable whereas the NoSQL databases are horizontally scalable. 
     
 12. Java Synchronization
-
+    (1) use synchronized monitor / synchronized method
+        synchronized(object){
+            // code block
+        }
+        public synchronized void update(){  // synchronized method
+        }
+    (2) use synchronized lock
+        private final ReentrantLock lock = new ReentrantLock();
+        lock.lock();
+        try{
+            // code ...
+        }finally{
+            lock.unlock();
+        }
+   
+    
 13. TCP vs UDP
     Http uses TCP, DNS uses UDP;  TCP reliable, connetion; UDP is connectionless. 
     TCP has re-transmission mechanism, Flow-control and Congestion control;
@@ -90,3 +120,13 @@
     But, if we implement the Runnable interface, our class can still extend other base classes.
     (2) We can achieve basic functionality of a thread by extending Thread class because it provides some inbuilt methods like yield(), 
     interrupt() etc. that are not available in Runnable interface.
+  
+17. REST API
+    Representational state transfer API. Representation of resource such as JSON,XML,HTML,SOAP format
+    State is, for example, the webpage on website. If direct to another page on same website, the state changes.
+    verb + URL (GET, PUT, POST, DELETE)
+    REST API = Rest API endpoint URL + API method + parameters
+    refer to https://www.youtube.com/watch?v=LooL6_chvN4
+    
+    
+18. Hadoop / MapReduce / Pig 
