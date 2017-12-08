@@ -11,3 +11,5 @@ LC214 Shortest Palindrome (Manacher Algorithm changing update condition until co
 
 LC330 Patching Array (greedy, add miss number to extend cover range)
 
+LC221 Maximal Square (dynamic programming, dp[i][j] means largest square length with point(i,j) as its bottom right)
+
