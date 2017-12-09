@@ -128,5 +128,8 @@
     REST API = Rest API endpoint URL + API method + parameters
     refer to https://www.youtube.com/watch?v=LooL6_chvN4
     
-    
-18. Hadoop / MapReduce / Pig 
+18. Transaction 
+    Transactions group a set of tasks into a single execution unit. 
+    Incomplete steps result in the failure of the transaction. A database transaction, by definition, must be atomic, consistent, isolated and durable. 
+
+19. Hadoop / MapReduce / Pig 
