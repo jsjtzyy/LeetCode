@@ -67,7 +67,22 @@
       (1) Separating Error-Handling Code from "Regular" Code
       (2) Propagating Errors Up the Call Stack
       (3) Grouping and Differentiating Error Types
-      
+    Runtime Exceptions: 
+          They usually happen due to programmers fault. For example, 
+          if an ArithmeticException of division by zero occurs or an ArrayIndexOutOfBoundsExceptionoccurs, 
+          it is because we are not careful enough in our coding. They happen usually because some errors in our program logic. 
+          So, they must be cleared before our program enters into production mode. They are unchecked in the sense that, 
+          our program must fail when it occurs, so that we programmers can resolve it at the time of development and testing itself.
+
+    Errors: 
+          Errors are situations from which usually the program cannot recover. 
+          For example, if a StackOverflowError occurs, our program cannot do much, 
+          such as increase the size of program's function calling stack. Or if an OutOfMemoryError occurs, 
+          we cannot do much to increase the amount of RAM available to our program. 
+          In such cases, it is better to exit the program. That is why
+
+
+
 9. DeadLock: (1) mutual exclusion, (2) hold and wait, (3) no preemption, (4) Circular wait
           avoid deadlock:  make sure access critical section in the same order; introduce preemption
 
