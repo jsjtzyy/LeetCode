@@ -61,6 +61,10 @@
     (2) cond.await(), cond.signal(), cond.signalAll() are used together with lock;
     (3) BlockingQueue (producer and consumer). Two methods: put(E, e), take(), if queue is full or empty, block the thread
     
+    线程唤醒后从哪儿执行？ 注意：实际情况是，被唤醒并且被执行的线程是从上次阻塞的位置从下开始运行，也就是从wait()方法后开始执行。
+
+    所以判断是否进入某一线程的条件 是用while判断，而不是用If判断判断。
+    
     
 8.  Exception
     Why use exception in Java (benefits)?
