@@ -181,6 +181,8 @@ Math.E;
 
 
 /********************* std input/output  file read/write ************************/
+import java.io.*;
+import java.net.*;
 Scanner in = new Scanner(System.in);
 int n = in.nextInt();
 while(in.hasNext()){
@@ -214,6 +216,14 @@ try{
 }catch (IOException e)
 {
     e.printStackTrace();
+}
+
+URL wordlist = new URL("http://foo.com/wordlist.txt");
+BufferedReader in = new BufferedReader(new InputStreamReader(wordlist.OpenStream()));
+String inputLine = null;
+List<String> res = new ArrayList<>();
+while((inputLine = in.readLine()) != null){
+    res.add(inputLine);
 }
 
 /********************* Atomic Class ******************************************/
