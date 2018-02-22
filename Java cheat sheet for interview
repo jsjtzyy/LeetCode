@@ -235,6 +235,11 @@ count.decrementAndGet();
 count.getAndDecrement();
 
 /********************* ExecutorService (create and manage threads)************************/
+(1)Future: Think of a Future as an object that holds the result – it may not hold it right now, 
+           but it will do so in the future (once the Callable returns). Thus, a Future is basically one way 
+           the main thread can keep track of the progress and result from other threads.
+(2)Callable: is similar to Runnable, in that it encapsulates a task that is meant to run on another thread.
+
 ExecutorService service = new Executor.newSingleThreadExecutor();           // single thread executor
 ExecutorService service = new Executor.newSingleThreadScheduledExecutor();  // single thread can run after delay or periodically
 ExecutorService service = new Executor.newCachedThreadPool();               // if previous thread is available, reuse it. Otherwise, create new thread as needed
