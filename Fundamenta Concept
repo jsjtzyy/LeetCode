@@ -151,4 +151,15 @@
     Transactions group a set of tasks into a single execution unit. 
     Incomplete steps result in the failure of the transaction. A database transaction, by definition, must be atomic, consistent, isolated and durable. 
 
-19. Hadoop / MapReduce / Pig 
+19. Hadoop / MapReduce / Pig
+19. JavaBean
+    A JavaBean is just a standard:
+        <1> All properties private (use getters/setters)
+        <2> A public no-argument constructor
+        <3> Implements Serializable. (java.io.Serializable interface)
+    JavaBean is just a convention. Lots of libraries depend on it.
+    
+20. MBeans = Managed Beans
+    (1)An MBean is a managed Java object, similar to a JavaBeans component, that follows 
+    the design patterns set forth in the JMX specification.
+    (2) An MBean can represent a device, an application, or any resource that needs to be managed.
