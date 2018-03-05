@@ -91,6 +91,8 @@ treeSet.higher(Integer e);                                  // return smallest e
 treeSet.first();                                            // return the first element in the treeset (if min set, return minimum element)
 treeSet.last();                                             // return the last element in the treeset
 
+
+
 /********************** LinkedHashMap, LinkedHashSet *************/
 Map<Integer,String> map = new LinkedHashMap<>();
 map.put(1, "first");
@@ -286,3 +288,6 @@ Set<Integer> set = new CopyOnWriteArraySet<>(); // copy all of their elements to
 
 Map<String, Integer> map = new ConcurrentSkipListMap<>(); // concurrent version for sorted map like treemap
 Set<String> set = new ConcurrentSkipListSet<>();          // concurrent version for sorted set like treeset
+
+在Java中, static修饰的成员（method、field）表明它属于这个类本身，而不是这个类的某个实例；
+在Java中, 不要使用对象去调用static修饰的成员变量、方法，而是要用类去调用static修饰的成员。
