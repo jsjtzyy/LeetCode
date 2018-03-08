@@ -163,3 +163,11 @@
     (1)An MBean is a managed Java object, similar to a JavaBeans component, that follows 
     the design patterns set forth in the JMX specification.
     (2) An MBean can represent a device, an application, or any resource that needs to be managed.
+    
+21. Java Native Interface(JNI): enables Java code running in a JVM to call and be called by native applications 
+                                 (programs specific to a hardware and operating system platform) and 
+                                 libraries written in other languages such as C, C++ and assembly.
+    Java Native Access(JNA): provides Java programs easy access to native shared libraries without writing anything but Java code.
+                             No JNI or native code is required. JNA allows you to call directly into native functions using natural Java method invocation.
+                              
+                              
