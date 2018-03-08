@@ -242,6 +242,9 @@ count.getAndDecrement();
            but it will do so in the future (once the Callable returns). Thus, a Future is basically one way 
            the main thread can keep track of the progress and result from other threads.
 (2)Callable: is similar to Runnable, in that it encapsulates a task that is meant to run on another thread.
+(3)In the thread pool, instead of using execute(Runnable r), you use submit(Callable r), which returns a Future<V> object (declared in the ExecutorService interface). 
+   When the result is required, you can use get() method on the Future object. If the result is ready, it is returned, 
+   otherwise, the calling thread is blocked until the result is available.
 
 ExecutorService service = new Executor.newSingleThreadExecutor();           // single thread executor
 ExecutorService service = new Executor.newSingleThreadScheduledExecutor();  // single thread can run after delay or periodically
@@ -257,7 +260,7 @@ service.shutdownNow();                            // stop all running tasks imme
 Future<?> result = service.schedule(Callable<V> callable, long delay, TimeUnit unit);
 Future<?> result = service.schedule(Runnable command, long delay, TimeUnit unit);
 Future<?> result = service.scheduleAtFixedDelay(Runnable command, long initialDelay, long delay, TimeUnit unit); // periodic execution. A fixed delay after completion of last execution
-
+Future<?> result = service.submit(Callable<V> callableWorker);
 future.isDone();
 future.isCancelled();
 future.cancel();                                // Attempts to cancel execution of the task.
