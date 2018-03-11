@@ -306,3 +306,33 @@ CountDownLatch use cases:
 /********************* review in OOP  ************************/
 在Java中, static修饰的成员（method、field）表明它属于这个类本身，而不是这个类的某个实例；
 在Java中, 不要使用对象去调用static修饰的成员变量、方法，而是要用类去调用static修饰的成员。
+
+/********************* Java NIO  ************************/
+Background: Java NIO使我们可以进行非阻塞IO操作。比如说，单线程中从Channel读取数据到buffer，同时可以继续做别的事情，
+            当数据读取到buffer中后，线程再继续处理数据。写数据也是一样的。
+NIO包含下面几个核心的组件：
+        Channels: 所有I/O都是从Channel开始的. 这些channel基于于UDP和TCP的网络I/O，以及文件I/O. 例如: FileChannel, ServerSocketChannel, DatagramChannel 等。
+        Buffers: Buffer涵盖了可以通过IO操作的基础类型。比如 ByteBuffer, IntBuffer etc. 
+        Selectors: 选择器允许单线程操作多个通道。如果你的程序中有大量的链接，同时每个链接的I/O带宽不高的话，这个特性将会非常有帮助。比如聊天服务器。
+                  要使用Selector的话，我们必须把Channel注册到Selector上，然后就可以调用Selector的select()方法。
+                  这个方法会进入阻塞，直到有一个channel的状态符合条件。当方法返回后，线程可以处理这些事件。
+Channel的特点：
+    Channel可以读也可以写，stream一般来说是单向的（只能读或者写);
+    Channel可以异步读写;
+    Channel总是基于缓冲区Buffer来读写.
+Channel的实现:
+    FileChannel         用于文件的数据读写
+    DatagramChannel     用于UDP的数据读写
+    SocketChannel       用于TCP的数据读写
+    ServerSocketChannel 允许我们监听TCP链接请求，每个请求会创建会一个SocketChannel
+    
+Buffer: 本质上就是一块内存区，可以用来写入数据，并在稍后读取出来。这块内存被NIO Buffer包裹起来，对外提供一系列的读写方便开发的接口。
+Buffer读写步骤：
+    (1)把数据装入buffer;   例如  int bytesRead = inChannel.read(buf);     //read into buffer.
+    (2)调用flip();        把Buffer从写模式切换到读模式;
+    (3)从Buffer中导出数据; 例如  int bytesWritten = inChannel.write(buf); //read from buffer into channel.
+    (4)调用buffer.clear()或者buffer.compact();    clear方法会重置position为0, compact则只清空已读取的数据，保留未读数据;
+Buffer有三个属性:
+    capacity容量: 作为一块内存，buffer有一个固定的大小。一旦buffer写满了就需要清空已读数据以便下次继续写入新的数据。
+    position位置: 读/写buffer时的位置。
+    limit限制: 一旦切换到读模式，limit则代表我们所能读取的最大数据量，他的值等于写模式下position的位置。
