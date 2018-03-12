@@ -336,3 +336,24 @@ Buffer有三个属性:
     capacity容量: 作为一块内存，buffer有一个固定的大小。一旦buffer写满了就需要清空已读数据以便下次继续写入新的数据。
     position位置: 读/写buffer时的位置。
     limit限制: 一旦切换到读模式，limit则代表我们所能读取的最大数据量，他的值等于写模式下position的位置。
+    
+Scatter:
+    Scattering read指的是从通道读取的操作能把数据写入多个buffer，也就是sctters代表了数据从一个channel到多个buffer的过程。
+Gather:
+    gathering write则正好相反，表示的是从多个buffer把数据写入到一个channel中。
+Scatter/gather在有些场景下会非常有用，比如需要处理多份分开传输的数据。举例来说，假设一个消息包含了header和body，我们可能会把header和body保存在不同独立buffer中，这种分开处理header与body的做法会使开发更简明。
+
+在Java NIO中如果一个channel是FileChannel类型的，那么它可以直接把数据传输到另一个channel。这个特性得益于FileChannel包含的transferTo和transferFrom两个方法
+FileChannel.transferFrom(fromChannel, position, count)方法: 目标通道pull数据
+FileChannel.transferTo(position, count, toChannel)方法:   源通道push数据
+
+Selector: 用于检查一个或多个NIO Channel的状态是否处于可读、可写。如此可以实现单线程管理多个channels,也就是可以管理多个网络链接.
+   好处是: 我可以用更少的线程来处理channel。实际上，你甚至可以用一个线程来处理所有的channels。从操作系统的角度来看，切换线程开销是比较昂贵的，并且每个线程都需要占用系统资源，因此暂用线程越少越好。
+注册Channel到Selector上:
+    channel.configureBlocking(false);      //Channel必须是非阻塞的。所以FileChannel不适用Selector，因为FileChannel不能切换为非阻塞模式
+    SelectionKey key = channel.register(selector, SelectionKey.OP_READ); //第二个参数是一个“关注集合”, 代表我们关注的channel状态
+Channel状态:
+     (1)Connect:  SelectionKey.OP_CONNECT
+     (2)Accept:   SelectionKey.OP_ACCEPT
+     (3)Read:     SelectionKey.OP_READ
+     (4)Write:    SelectionKey.OP_WRITE
