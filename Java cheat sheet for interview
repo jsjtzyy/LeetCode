@@ -357,3 +357,18 @@ Channel状态:
      (2)Accept:   SelectionKey.OP_ACCEPT
      (3)Read:     SelectionKey.OP_READ
      (4)Write:    SelectionKey.OP_WRITE
+
+SelectionKey对象包含以下属性:
+    The interest set;
+    The ready set;
+    The Channel;
+    The Selector;
+    An attached object (optional);
+    
+  (1)interest set: is the set of events you are interested in "selecting".
+  (2)ready set:  is the set of operations the channel is ready for. 一般来说在调用了select方法后都会需要用到ready set
+  (3)channel:
+  (4)selector: Accessing the channel + selector from the SelectionKey is trivial. Like this: Selector selector = selectionKey.selector();
+  (5)attached object: You can attach an object to a SelectionKey this is a handy way of recognizing a given channel, 
+                      or attaching further information to the channel.
+  
