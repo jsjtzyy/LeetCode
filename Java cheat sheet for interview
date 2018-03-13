@@ -293,6 +293,14 @@ Set<Integer> set = new CopyOnWriteArraySet<>(); // copy all of their elements to
 Map<String, Integer> map = new ConcurrentSkipListMap<>(); // concurrent version for sorted map like treemap
 Set<String> set = new ConcurrentSkipListSet<>();          // concurrent version for sorted set like treeset
 
+/********************* Generics - Get and Put rule ************************/
+Use an extends wildcard when you only get values out of a structure.
+Use a super wildcard when you only put values into a structure.
+And don't use a wildcard when you both want to get and put from/to a structure.
+
+Collection<? extends Fruit> // what we know is that the collection is one type of Fruit. We can get but cannot add into it in case that added fruit violates the current type
+Collection<? super Banana> // what we know is fruits in collection belong to parent class of banana. We can add fruit as long as we know the added fruit is parent class of banana. But we can't get one from it because we don't know what is excatly the type is.
+
 /********************* CountDownLatch  ************************/
 CountDownLatch是一个同步工具类，它允许一个或多个线程一直等待，直到其他线程的操作执行完后再执行.
 Background: 并发工具类还有CyclicBarrier、Semaphore、ConcurrentHashMap和BlockingQueue，它们都存在于java.util.concurrent包下。
