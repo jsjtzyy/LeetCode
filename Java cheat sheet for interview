@@ -92,8 +92,6 @@ treeSet.higher(Integer e);                                  // return smallest e
 treeSet.first();                                            // return the first element in the treeset (if min set, return minimum element)
 treeSet.last();                                             // return the last element in the treeset
 
-
-
 /********************** LinkedHashMap, LinkedHashSet *************/
 Map<Integer,String> map = new LinkedHashMap<>();
 map.put(1, "first");
@@ -179,6 +177,9 @@ Math.sqrt();
 Math.sin(double rad);         // input is rad not angle
 Math.PI;
 Math.E;
+
+/************************** Collections *****************************/
+Collections.nCopies(100, new Object[]{true});  // return an immutable list which contains n copies of given object
 
 /************************** Lamda expression *****************************/
 
