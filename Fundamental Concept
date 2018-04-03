@@ -171,3 +171,13 @@
                              No JNI or native code is required. JNA allows you to call directly into native functions using natural Java method invocation.
                               
                               
+22. TCP Flags:
+        SYN - Initiates a connection
+        ACK - Acknowledges received data
+        FIN - Closes a connection
+        RST - Aborts a connection in response to an error
+        PSH - Means Push, two goals:
+                The sending application informs TCP that data should be sent immediately.
+                The PSH flag in the TCP header informs the receiving host that the data should be pushed up to the receiving application immediately
+        URG - Inform a receiving station that certain data within a segment is urgent and should be prioritized.
+              
