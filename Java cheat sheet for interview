@@ -231,12 +231,22 @@ while((inputLine = in.readLine()) != null){
 }
 
 /********************* Atomic Class ******************************************/
+
+//an atomic operation is supposed to be completed wholly or not at all. Based on CAS theory
 AtomicInteger count = new AtomicInteger(0);
 count.getAndSet();
 count.incrementAndGet();
 count.getAndIncrement();
 count.decrementAndGet();
 count.getAndDecrement();
+
+AtomicReference<AmbryClientException> exceptionInCallback = new AtomicReference<>(null); // an atomic object allowing method to perform atomic operations
+exceptionInCallback.get();
+exceptionInCallback.set();
+exceptionInCallback.compareAndSet(expected, update); // Atomically sets the value to the given updated value if the current value == the expected value.
+
+AtomicStampedReference<Person> s  = new AtomicStampedReference<Person>(new Person(20), stampVal);
+s.compareAndSet(s.getReference(), new Person(s.getReference().age+10), stampVal, ++stampVal); // s.compareAndSet(expected_reference, update_reference, expected_stamp, update_stamp);
 
 /********************* ExecutorService (create and manage threads)************************/
 (1)Future: Think of a Future as an object that holds the result – it may not hold it right now, 
@@ -293,6 +303,7 @@ Set<Integer> set = new CopyOnWriteArraySet<>(); // copy all of their elements to
 
 Map<String, Integer> map = new ConcurrentSkipListMap<>(); // concurrent version for sorted map like treemap
 Set<String> set = new ConcurrentSkipListSet<>();          // concurrent version for sorted set like treeset
+
 
 /********************* Generics - Get and Put rule ************************/
 Use an extends wildcard when you only get values out of a structure.
