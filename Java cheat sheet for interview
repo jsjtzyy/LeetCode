@@ -391,4 +391,20 @@ SelectionKey对象包含以下属性:
   (4)selector: Accessing the channel + selector from the SelectionKey is trivial. Like this: Selector selector = selectionKey.selector();
   (5)attached object: You can attach an object to a SelectionKey this is a handy way of recognizing a given channel, 
                       or attaching further information to the channel.
-  
+                      
+Selector 选择 channel的几个函数
+  select():              blocks until at least one channel is ready for the events you registered for.
+  select(long timeout):  does the same as select() except it blocks for a maximum of timeout milliseconds (the parameter).
+  selectNow():           doesn't block at all. It returns immediately with whatever channels are ready.
+注意：上述函数返回值是int, The int returned by the select() methods tells how many channels are ready.
+
+访问Ready的Channel
+You can access the ready channels via the "selected key set", by calling the selectors selectedKeys() method.
+Set<SelectionKey> selectedKeys = selector.selectedKeys(); 
+
+Close()函数
+When you are finished with the Selector you call its close() method. 
+This closes the Selector and invalidates all SelectionKey instances registered with this Selector. 
+The channels themselves are not closed.
+
+
