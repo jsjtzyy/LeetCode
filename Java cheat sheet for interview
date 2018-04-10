@@ -407,4 +407,8 @@ When you are finished with the Selector you call its close() method.
 This closes the Selector and invalidates all SelectionKey instances registered with this Selector. 
 The channels themselves are not closed.
 
-
+Java NIO SocketChannel: a channel that is connected to a TCP network socket.
+You can set a SocketChannel into non-blocking mode. When you do so, you can call connect(), read() and write() in asynchronous mode.
+connect()
+write()
+read()
