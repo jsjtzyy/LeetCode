@@ -67,6 +67,11 @@ if(set.contains(10)){
 }
 set.size();
 set.isEmpty();
+setA.retainAll(setB); // setA keeps the intersection of original setA and setB;
+setB.removeAll(setC); // Removes from this set all of its elements that are contained in the specified collection (setB - setC)
+setC.addAll(setD);    // union two sets of setC and setD
+setC.containsAll(setD); // Returns true if this set contains all of the elements of specified collection
+Object[] arr = setA.toArray(); // Returns an array containing all of the elements in this set.
 
 TreeMap<Integer, String> map = new TreeMap<>();             // key’s ascending order (default)
 map.put(2, “b”);
@@ -239,6 +244,9 @@ count.incrementAndGet();
 count.getAndIncrement();
 count.decrementAndGet();
 count.getAndDecrement();
+
+AtomicBoolean enabled = new AtomicBoolean(initialValue: false);
+boolean result = enabled.compareAndSet(expect:true, update:false);  // if result = false, means actual value doesn't equal to expect one
 
 AtomicReference<AmbryClientException> exceptionInCallback = new AtomicReference<>(null); // an atomic object allowing method to perform atomic operations
 exceptionInCallback.get();
