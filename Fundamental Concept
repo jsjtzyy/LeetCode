@@ -181,3 +181,30 @@
                 The PSH flag in the TCP header informs the receiving host that the data should be pushed up to the receiving application immediately
         URG - Inform a receiving station that certain data within a segment is urgent and should be prioritized.
               
+23. signed URL (use Amazon S3 as example)
+    Amazon S3 = Amazon Simple Storage Service
+    Amazon CloudFront = a content delivery web service
+    CloudFront distribution = the delivery method CloudFront uses to distribute the content to the end user
+         two types of distribution:
+                (1)Web Distributions: distribute static content like images, PDF files, excel and word doc files. 
+                                      These files can be distributed via HTTP or HTTPS.
+                (2)RTMP distributions: stream the media files via Adobe server. It allows an end user to begin playing a
+                                       media file before the file has finished downloading from a CloudFront edge location.
+    Signed URL: A signed URL includes additional information, for example, an expiration date and time,
+                that gives you more control over access to your content.
+    <1>specify one or more trusted signers, which are the AWS accounts that you want to have permission to create signed URLs.
+    <2>develop your application to determine whether a user should have access to your content 
+       and to create signed URLs for the objects or parts of your application that you want to restrict access to.
+    <3>A user requests an object for which you want to require signed URLs.
+    <4>Your application verifies that the user is entitled to access the object: they've signed in, 
+       they've paid for access to the content, or they've met some other requirement for access.
+    <5>Your application creates and returns a signed URL to the user.
+    <6>The signed URL allows the user to download or stream the content.
+       (This step is automatic: the user needs nothing additional to access the content. 
+        For example: if a user is accessing the content in web browser, your application returns signed URL to the browser. 
+        The browser immediately uses the signed URL to access the object in the CloudFront edge cache without any intervention 
+        from the user.)
+     <7>CloudFront uses the public key to validate the signature and confirm that the URL hasn't been tampered with. 
+        If the signature is invalid, the request is rejected.
+     
+                
