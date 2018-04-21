@@ -206,5 +206,7 @@
         from the user.)
      <7>CloudFront uses the public key to validate the signature and confirm that the URL hasn't been tampered with. 
         If the signature is invalid, the request is rejected.
-     
-                
+  
+24. 非对称加密算法：RSA，DSA/DSS
+    对称加密算法：AES，RC4，3DES
+    HASH算法：MD5，SHA1，SHA256
