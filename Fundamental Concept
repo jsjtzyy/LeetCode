@@ -210,3 +210,11 @@
 24. 非对称加密算法：RSA，DSA/DSS
     对称加密算法：AES，RC4，3DES
     HASH算法：MD5，SHA1，SHA256
+    
+25. Message Digest (信息摘要)：
+        Message digest is a cryptographic hash function containing a string of digits created by a one-way hashing formula.
+        This term is also known as a hash value and sometimes as a checksum.
+        它是一个唯一对应一个消息或文本的固定长度的值，它由一个单向Hash加密函数对消息进行作用而产生.
+        
+26. VIP = Virtual IP address
+    An IP address that doesn't correspond to an actual physical network interface. Uses for VIPs include network address translation (especially, one-to-many NAT), fault-tolerance, and mobility.
