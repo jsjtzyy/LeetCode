@@ -22,6 +22,7 @@ s.replaceAll(substr, target); // replace all substr to target in s
 
 char[] arr = s.toCharArray();
 String[] arr = s.split(“\\*”) // when delimiter is ‘*’
+String res = String.join(String delimiter, List<String> data); // use the delimiter to concatenate the string in data.
 
 /********************** StringBuilder ***************************/
 StringBuilder sb = new StringBuilder();
