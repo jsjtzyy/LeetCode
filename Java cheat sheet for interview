@@ -4,8 +4,8 @@
 [int to String]:     String.valueOf(int)
 [char[] to String]:  String str = new String(chArray);
 [list to array]:     String[] arr = list.toArray(new String[list.size()]);
-[array to list]:     List<String> list = Arrays.asList(arr);
-
+[array to list]:     List<String> list = Arrays.asList(arr); # 可以直接罗列array的元素，比如：Arrays.asList("first", "second");
+                                                             # 非常适合于 convert single element to list
 /********************** String ***************************/
 String s = “a*b*c”;
 s.charAt(i);
