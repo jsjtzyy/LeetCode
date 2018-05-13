@@ -190,8 +190,14 @@ Math.E;
 Collections.nCopies(100, new Object[]{true});  // return an immutable list which contains n copies of given object
 
 /************************** Lamda expression *****************************/
-
-
+1. Functional interface: the interface contains exactly one abstract method
+   @FunctionalInterface 
+   public interface Sprint {
+      public void sprint(Animal animal); 
+   }
+2. lamda expression
+   a -> a.canHop()   等价于 (Animal a) -> { return a.canHop(); }
+   
 /********************* std input/output  file read/write ************************/
 import java.io.*;
 import java.net.*;
