@@ -6,6 +6,7 @@
 [list to array]:     String[] arr = list.toArray(new String[list.size()]);
 [array to list]:     List<String> list = Arrays.asList(arr); # 可以直接罗列array的元素，比如：Arrays.asList("first", "second");
                                                              # 非常适合于 convert single element to list
+                                                             
 /********************** String ***************************/
 String s = “a*b*c”;
 s.charAt(i);
@@ -23,7 +24,11 @@ s.replaceAll(substr, target); // replace all substr to target in s
 char[] arr = s.toCharArray();
 String[] arr = s.split(“\\*”) // when delimiter is ‘*’
 String res = String.join(String delimiter, List<String> data); // use the delimiter to concatenate the string in data.
-
+Objects.equals(Object a, Object b); // (1)if both parameters are null return true
+                                    // (2)if exactly one parameter is null return false
+                                    // (3)return the result of invoking the equals() method of the first parameter passing it the second parameter
+                                    // This behaviour means it is "null safe".
+                                    
 /********************** StringBuilder ***************************/
 StringBuilder sb = new StringBuilder();
 sb.append(“a”);
