@@ -320,8 +320,18 @@ blockingDeque.offerLast(E e, long timeout, TimeUnit unit);
 blockingDeque.pollFirst(long timeout, TimeUnit unit);
 blockingDeque.pollLast(long timeout, TimeUnit unit);
 
-List<Integer> list = new CopyOnWriteArrayList<>(Arrays.asList(4,3,52));
-Set<Integer> set = new CopyOnWriteArraySet<>(); // copy all of their elements to a new underlying structure anytime an element is added, modi ed, or removed from the collection
+/* ----- Introduction on CopyOnWriteArrayList -------
+* When we’re calling the iterator() method on the CopyOnWriteArrayList, 
+* we get back an Iterator backed up by the immutable snapshot of the content of the CopyOnWriteArrayList.
+* Its content is an exact copy of data that is inside an ArrayList from the time when the Iterator was created. 
+* Even if in the meantime some other thread adds or removes an element from the list, 
+* that modification is making a fresh copy of the data that will be used in any further data lookup from that list.
+* Because of the copying mechanism, the remove() operation on the returned Iterator is not permitted.
+*/
+List<Integer> list = new CopyOnWriteArrayList<>(Arrays.asList(4,3,52));// use case: when we are iterating over it more often than we are modifying it. 
+                                                                       // If adding elements is a common operation in our scenario, then CopyOnWriteArrayList won’t be a good choice 
+                                                                       // – because the additional copies will definitely lead to sub-par performance.
+Set<Integer> set = new CopyOnWriteArraySet<>(); // copy all of their elements to a new underlying structure anytime an element is added, modified, or removed from the collection
 
 Map<String, Integer> map = new ConcurrentSkipListMap<>(); // concurrent version for sorted map like treemap
 Set<String> set = new ConcurrentSkipListSet<>();          // concurrent version for sorted set like treeset
