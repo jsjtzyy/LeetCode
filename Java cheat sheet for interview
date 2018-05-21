@@ -452,3 +452,10 @@ You can set a SocketChannel into non-blocking mode. When you do so, you can call
 connect()
 write()
 read()
+
+/********************* Java I/O  ************************/
+1. int read(byte[], int offset, int length)
+   The read(byte[], int offset, int length) method reads bytes into a byte array, but starts at offset bytes into the array, 
+and reads a maximum of length bytes into the array from that position. Again, the read(byte[], int offset, int length) method 
+returns an int telling how many bytes were actually read into array, remember to check this value before processing the read bytes.
+
