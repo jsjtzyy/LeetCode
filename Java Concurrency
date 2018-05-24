@@ -1,0 +1,29 @@
+[reference]: 
+基础篇： http://www.10tiao.com/html/689/201804/2651581230/1.html
+晋级篇： https://blog.csdn.net/gitchat/article/details/79983445
+高级篇1：http://www.10tiao.com/html/689/201805/2651581519/1.html
+高级篇2：http://gitbook.cn/books/5ac70a26d60a134e37dafdd7/index.html
+/****************************************************************************************************************/
+1. 堆是一个进程中最大的一块内存，堆是被进程中的所有线程共享的，是进程创建时候分配的，堆里面主要存放使用 new 操作创建的对象实例.
+2. 方法区则是用来存放进程中的代码片段的，是线程共享的.
+3. Java 中有三种线程创建方法，分别为
+    (1)实现 Runnable 接口的runnable method;   // no return value
+    (2)继承 Thread 类并重写 run 方法;          // no return value
+    (3)使用 FutureTask 方式.                 // allows to return value
+   //创任务类，类似Runable
+   public static class CallerTask implements Callable<String>{        
+        @Override
+        public String call() throws Exception {            
+            return "hello";
+        }
+    }  
+    public static void main(String[] args) throws InterruptedException {    
+        FutureTask<String> futureTask  = new FutureTask<>(new CallerTask());  // 创建异步任务      
+        new Thread(futureTask).start();       //启动线程 
+        try {          
+            String result = futureTask.get(); //等待任务执行完毕，并返回结果
+            System.out.println(result);
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
