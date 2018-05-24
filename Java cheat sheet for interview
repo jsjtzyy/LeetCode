@@ -191,8 +191,9 @@ Math.sin(double rad);         // input is rad not angle
 Math.PI;
 Math.E;
 
-/************************** Collections *****************************/
+/************************** Collections/Object *****************************/
 Collections.nCopies(100, new Object[]{true});  // return an immutable list which contains n copies of given object
+getClass()            // Returns the runtime class of this {@code Object}
 
 /************************** Lamda expression *****************************/
 1. Functional interface: the interface contains exactly one abstract method
