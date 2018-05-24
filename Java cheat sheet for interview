@@ -64,6 +64,8 @@ for(Map.Entry<Character, Integer> entry : map.entrySet()){   // traverse key-val
     entry.getKey();
     entry.getValue();
 }
+map.forEach((k,v) -> System.out.println("key: "+k+" value:"+v)); // traverse key-value pair using lamda expression to print out info
+
 map.isEmpty();
 map.size();
 HashSet<Integer> set = new HashSet<Integer>();
@@ -117,12 +119,13 @@ Set<Integer> set = new LinkedHashSet<>();
 /********************** List, ArrayList, LinkedList *************/
 List<Integer> list = new ArrayList<>();
 list.add(14);
-list.add(0, 10);                			                // list.add(int index, int value);
+list.add(0, 10);                			            // list.add(int index, int value);
 list.get(int index);
 list.remove(list.size() - 1);
-list.set(int index, int val);                               // replaces element at index and returns original
-
-Collections.sort(list);				                        // ascending order by default
+list.set(int index, int val);                     // replaces element at index and returns original
+list.indexOf(Object o);                           // return first index of occurrence of specified element in the list; -1 if not found
+list.subList(int fromIndex, int toIndex);         // return a sublist within range [fromIndex, toIndex)
+Collections.sort(list);				                    // ascending order by default
 Collections.sort(list, Collections.reverseOrder());         // descending order
 Collections.sort(list, new Comparator<Integer>() {
    @Override
