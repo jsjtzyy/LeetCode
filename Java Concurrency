@@ -27,3 +27,16 @@
             e.printStackTrace();
         }
     }
+4. wait() method:
+   当一个线程调用一个共享对象的 wait() 方法时候，调用线程会被阻塞挂起，直到下面几个事情之一发生才返回：
+    (1)其它线程调用了该共享对象的 notify() 或者 notifyAll() 方法；
+    (2)其它线程调用了该线程的 interrupt() 方法设置了该线程的中断标志，该线程会抛出 InterruptedException 异常返回
+5. spurious wakeup 虚假唤醒
+   如果线程没有被其它线程调用 { notify(), notifyAll(),或者被中断，或者等待超时 } 而被唤醒，这种唤醒称为spurious wakup
+   [防范 spurious wakeup]:
+     用一个loop不停的去测试该线程被唤醒的条件是否满足，不满足则继续等待：
+     synchronized (obj) {             
+        while (条件不满足){
+           obj.wait();  
+        }
+     }
