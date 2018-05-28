@@ -31,6 +31,11 @@
    当一个线程调用一个共享对象的 wait() 方法时候，调用线程会被阻塞挂起，直到下面几个事情之一发生才返回：
     (1)其它线程调用了该共享对象的 notify() 或者 notifyAll() 方法；
     (2)其它线程调用了该线程的 interrupt() 方法设置了该线程的中断标志，该线程会抛出 InterruptedException 异常返回
+    [thread interrupted() 和 isInterrupted()的区别]:
+         interrupted()除了返回中断标记之外，它还会清除中断标记(即将中断标记设为false);
+         isInterrupted()仅仅返回中断标记;
+         也就是说，调用interrupted()这个函数时，中断标记会暂时变为true，然后被清楚变为false.
+         
 5. spurious wakeup 虚假唤醒
    如果线程没有被其它线程调用 { notify(), notifyAll(),或者被中断，或者等待超时 } 而被唤醒，这种唤醒称为spurious wakup
    [防范 spurious wakeup]:
