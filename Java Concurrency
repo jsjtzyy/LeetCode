@@ -109,7 +109,15 @@
    
 2. Java的对象头
     synchronize 用的锁是存在Java对象头里的。
-    <1> 数组类型，JVM用3个字长（word）存储对象头
-    <2> 非数组类型，JVM用2个字长(word)存储对象头
+    <1> 数组类型，JVM用3个字长（word）存储对象头 (Mark Word, Class Metadata Address, ArrayLength)
+    <2> 非数组类型，JVM用2个字长(word)存储对象头 (Mark Word, Class Metadata Address)
+    
+    Mark Word 存储：(1)HashCode, (2)分代年龄, (3)锁标记位
+    
+3. 锁的升级
+   无锁状态 --> 偏向锁状态(Biased Lock) --> 轻量级锁状态 --> 重量级锁状态 
+   (1) 随着竞争情况逐渐升级
+   (2) 锁可以升级，不能降级
     
 
+    
