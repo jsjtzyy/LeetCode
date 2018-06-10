@@ -134,6 +134,7 @@ Collections.sort(list, new Comparator<Integer>() {
    // return o2‐o1; 1‐>0
    }
 });
+list.forEach(num -> system.out.println(num));   // traverse the list and print out by using lamda function
 
 /********************** Stack, Queue, PriorityQueue, Deque ***********************/
 Stack<Integer> stack = new Stack<Integer>();
