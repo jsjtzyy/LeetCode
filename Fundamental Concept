@@ -218,3 +218,17 @@
         
 26. VIP = Virtual IP address
     An IP address that doesn't correspond to an actual physical network interface. Uses for VIPs include network address translation (especially, one-to-many NAT), fault-tolerance, and mobility.
+
+27. What is Database Incarnation?
+
+    Database incarnation is effectively a new “version” of the database that happens when you reset the online redo logs using “alter database open resetlogs;”.
+    Database incarnation falls into following category Current, Parent, Ancestor and Sibling
+    
+    i) Current Incarnation : The database incarnation in which the database is currently generating redo.
+    ii) Parent Incarnation : The database incarnation from which the current incarnation branched following an OPEN RESETLOGS operation.
+    iii) Ancestor Incarnation : The parent of the parent incarnation is an ancestor incarnation. Any parent of an ancestor incarnation is also an ancestor incarnation.
+    iv) Sibling Incarnation : Two incarnations that share a common ancestor are sibling incarnations if neither one is an ancestor of the other.
+
+28. SCN = System Change Number
+    the system change number (SCN) is Oracle's clock - every time we commit, the clock increments. 
+    The SCN just marks a consistent point in time in the database. 
