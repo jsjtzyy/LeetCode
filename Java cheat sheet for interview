@@ -365,6 +365,9 @@ CountDownLatch use cases:
 在Java中, static修饰的成员（method、field）表明它属于这个类本身，而不是这个类的某个实例；
 在Java中, 不要使用对象去调用static修饰的成员变量、方法，而是要用类去调用static修饰的成员。
 
+final修饰Collection 比如 List, Map 意味着不能修改这个reference指向别的，但是我们仍允许修改这个Collection (add/delet element, etc)
+final修饰class, 意味着这个class不能被继承（extends）
+
 /********************* Java NIO  ************************/
 Background: Java NIO使我们可以进行非阻塞IO操作。比如说，单线程中从Channel读取数据到buffer，同时可以继续做别的事情，
             当数据读取到buffer中后，线程再继续处理数据。写数据也是一样的。
