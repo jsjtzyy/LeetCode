@@ -196,9 +196,11 @@ Math.PI;
 Math.E;
 
 /************************** Collections/Object *****************************/
-Collections.nCopies(100, new Object[]{true});  // return an immutable list which contains n copies of given object
-getClass()            // Returns the runtime class of this {@code Object}
-Collections.singletonList() // use it to replace Arrays.asList() when there is only one element
+Collections.nCopies(100, new Object[]{true});// return an immutable list which contains n copies of given object
+getClass()                                   // Returns the runtime class of this {@code Object}
+Collections.singletonList()                  // use it to replace Arrays.asList() when there is only one element
+Collections.unmodifiableSet(new HashSet<>()) // returns an unmodifiable view of the specified set. Note that, changes in specified set will be reflected in unmodifieable set. 
+                                             // Also, any modification on unmodifiableSet is not allowed, which triggers exception.
 
 /************************** Lamda expression *****************************/
 1. Functional interface: the interface contains exactly one abstract method
