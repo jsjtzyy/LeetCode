@@ -366,6 +366,17 @@ CountDownLatch use cases:
 /********************* review in OOP  ************************/
 在Java中, static修饰的成员（method、field）表明它属于这个类本身，而不是这个类的某个实例；
 在Java中, 不要使用对象去调用static修饰的成员变量、方法，而是要用类去调用static修饰的成员。
+static块,用于初始化静态变量, 例如：
+   static int num;
+   static String mystr;
+   static{
+      num = 97;
+      mystr = "Static keyword in Java";
+   }
+   //Static Block is used for initializing the static variables.
+   //This block gets executed when the class is loaded in the memory. 
+   //A class can have multiple Static blocks, which will execute in the same sequence in which they have been written into the program.
+
 
 final修饰Collection 比如 List, Map 意味着不能修改这个reference指向别的，但是我们仍允许修改这个Collection (add/delet element, etc)
 final修饰class, 意味着这个class不能被继承（extends）
