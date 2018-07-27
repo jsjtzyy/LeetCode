@@ -6,7 +6,8 @@
 [list to array]:     String[] arr = list.toArray(new String[list.size()]);
 [array to list]:     List<String> list = Arrays.asList(arr); # 可以直接罗列array的元素，比如：Arrays.asList("first", "second");
                                                              # 非常适合于 convert single element to list
-                                                             
+# 注意 Arrays.asList 返回的list形式的数组，可以修改某个element，但不能 add 或 remove elements
+
 /********************** String ***************************/
 String s = “a*b*c”;
 s.charAt(i);
