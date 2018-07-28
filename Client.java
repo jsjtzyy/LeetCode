@@ -30,7 +30,7 @@ public class Client {
       String cmd;
       while (running) {
         cmd = scanner.nextLine();
-        if (cmd.equals("stop")) {
+        if (cmd.equals("exit")) {
           running = false;
           System.out.println("shutting down the client and server");
           bw.write(cmd + "\n");
