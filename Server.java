@@ -35,7 +35,7 @@ public class Server {
           break;
         }
         System.out.println("received: " + mess);
-        if (mess.equals("stop")) {
+        if (mess.equals("exit")) {
           System.out.println("Shutting down server");
           running = false;
         } else {
