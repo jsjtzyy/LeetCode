@@ -202,7 +202,7 @@ getClass()                                   // Returns the runtime class of thi
 Collections.singletonList()                  // use it to replace Arrays.asList() when there is only one element
 Collections.unmodifiableSet(new HashSet<>()) // returns an unmodifiable view of the specified set. Note that, changes in specified set will be reflected in unmodifieable set. 
                                              // Also, any modification on unmodifiableSet is not allowed, which triggers exception.
-
+Collections.swap(List, int i, int j);        // swap the ith and jth element in list 
 /************************** Lamda expression *****************************/
 1. Functional interface: the interface contains exactly one abstract method
    @FunctionalInterface 
