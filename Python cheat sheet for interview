@@ -1,2 +1,6 @@
 
 tuple, list, dict
+########################### Misc ##################################
+[Problem]: Python can't find module in the same folder.
+[Solution]: Use relative import, an example is as follows:
+       from .module_name import function_name
