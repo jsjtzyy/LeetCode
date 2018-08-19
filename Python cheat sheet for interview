@@ -1,3 +1,6 @@
+1. python tenary conditional operator:
+   varible_x = a if condition else b # if condition is True, return a; otherwise return b
+
 
 tuple, list, dict
 ########################### Misc ##################################
