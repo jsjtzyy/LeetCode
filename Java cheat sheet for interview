@@ -342,8 +342,8 @@ List<Integer> list = new CopyOnWriteArrayList<>(Arrays.asList(4,3,52));// use ca
                                                                        // – because the additional copies will definitely lead to sub-par performance.
 Set<Integer> set = new CopyOnWriteArraySet<>(); // copy all of their elements to a new underlying structure anytime an element is added, modified, or removed from the collection
 
-Map<String, Integer> map = new ConcurrentSkipListMap<>(); // concurrent version for sorted map like treemap
-Set<String> set = new ConcurrentSkipListSet<>();          // concurrent version for sorted set like treeset
+Map<String, Integer> map = new ConcurrentSkipListMap<>(); // concurrent version for sorted map like treemap, ascending order by default
+Set<String> set = new ConcurrentSkipListSet<>();          // concurrent version for sorted set like treeset, ascending order by default
 concurrentNavigableMap<K,V>.descendingMap();              // Returns a reverse order view of the mappings contained in this map
 
 /********************* Generics - Get and Put rule ************************/
