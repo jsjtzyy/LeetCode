@@ -181,6 +181,12 @@ dq.peekLast();
 dq.pollFirst(); //  dq.removeFirst();
 dq.pollLast();  //  dq.removeLast();
 
+/********************** Enum ***************************/
+set1 = EnumSet.of(Gfg.QUIZ, Gfg.CONTRIBUTE,  Gfg.LEARN, Gfg.CODE); 
+set2 = EnumSet.complementOf(set1);              // initially containing all the elements of this type that are not contained in the specified set
+set3 = EnumSet.allOf(Gfg.class);                
+set4 = EnumSet.range(Gfg.CODE, Gfg.CONTRIBUTE); // contains all of the elements in the range defined by the two specified endpoints.
+
 /************************** Random method *****************************/
 Random rand =new Random();    // initialize Random object
 int i = rand.nextInt(100);    // generate random number in [0, 100)
