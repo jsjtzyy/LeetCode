@@ -167,5 +167,17 @@
    (1)总线加锁
    (2)缓存加锁
 
+6. ReentrantReadWriteLock
+线程进入读锁的前提条件： 同时满足 (1)没有其他线程的写锁, (2)没有写请求或者有写请求，但调用线程和持有锁的线程是同一个
+线程进入写锁的前提条件： 同时满足 (1)没有其他线程的读锁, (2)没有其他线程的写锁
+ReadLock 和 WriteLock的性质：
+     (a).重入方面其内部的WriteLock可以获取ReadLock，但是反过来ReadLock想要获得WriteLock则永远都不要想。 
+     (b).WriteLock可以降级为ReadLock，顺序是：先获得WriteLock再获得ReadLock，然后释放WriteLock，这时候线程将保持Readlock的持有。反过来ReadLock想要升级为WriteLock则不可能，为什么？参看(a). 
+     (c).ReadLock可以被多个线程持有并且在作用时排斥任何的WriteLock，而WriteLock则是完全的互斥。这一特性最为重要，因为对于高读取频率而相对较低写入的数据结构，使用此类锁同步机制则可以提高并发量。 
+     (d).不管是ReadLock还是WriteLock都支持Interrupt，语义与ReentrantLock一致。 
+     (e).WriteLock支持Condition并且与ReentrantLock语义一致，而ReadLock则不能使用Condition，否则抛出UnsupportedOperationException异常
+Q: 为什么ReadLock重入时不能获得WriteLock?
+A: 因为ReadLock是共享锁，可能被当前线程之外的另个线程持有。注意写锁的前提之一是 (1)没有其他线程的读锁。设想一下，如果当前线程得到写锁，而别的线程
+   持有读锁的情况下，会发生inconsistent
 
 (java 的各种锁，请参考美图技术团队的博客 https://tech.meituan.com/2018/11/15/java-lock.html )
