@@ -96,6 +96,7 @@
    (1) synchronized 普通 method, 锁是当前instance对象
    (2) synchronized static method, 锁是当前类Class对象
    (3) synchronized 代码块, 锁是Synchronized括号里配置的对象
+   (4) synchronized 代码块, 比如 synchronized (PersonService.class)形式, 锁是Synchronized括号里class的所有对象
    
 3. Volatile:
    一旦一个变量被 volatile 修饰了，当线程获取这个变量值的时候会首先清空线程工作内存中该变量的值，然后从主内存获取该变量的值；
