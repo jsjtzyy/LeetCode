@@ -232,3 +232,6 @@
 28. SCN = System Change Number
     the system change number (SCN) is Oracle's clock - every time we commit, the clock increments. 
     The SCN just marks a consistent point in time in the database. 
+
+29. what is cross-cutting concern? 
+    Here is a good link: https://stackoverflow.com/questions/23700540/cross-cutting-concern-example
