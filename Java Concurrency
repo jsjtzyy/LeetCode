@@ -1,3 +1,6 @@
+[Notes from daily work]:
+1. concurrent set allows concurrent iteration (In other words, it can safely iterate while other thread is attempting to modify this set)
+
 [reference]: 
 基础篇： http://www.10tiao.com/html/689/201804/2651581230/1.html
 晋级篇： https://blog.csdn.net/gitchat/article/details/79983445
