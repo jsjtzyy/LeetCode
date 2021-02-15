@@ -175,7 +175,7 @@ class Node implements Comparable<Node>{
 PriorityQueue<Node> pq = new PriorityQueue<>();
 
 import java.util.Deque; 
-Deque<Integer> dq = new ArrayDeque<Integer>(); 
+Deque<Integer> dq = new LinkedList<Integer>();    // Deque is usually used to implement monotone queue
 dq.addFirst();  //  dq.offerFirst();
 dq.addLast();   //  dq.offerLast();
 dq.peekFirst(); // 
