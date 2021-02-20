@@ -6,6 +6,14 @@ how to use:
     semaphore.acquire() // try to acquire the permit
     semaphore.release()
 
+Conditional Variable:
+    Lock lock = new ReentrantLock();
+    Condition condVar = lock.newCondition();
+
+
+signalAll() is a method specific to a Condition, whereas notifyAll() is done on any object you're locking on.
+signalAll() should be used when you're waiting/sleeping with Condition.await(), and notifyAll() when you're using Object.wait() inside a synchronized block.
+
 [Notes from daily work]:
 1. concurrent set allows concurrent iteration (In other words, it can safely iterate while other thread is attempting to modify this set)
 
