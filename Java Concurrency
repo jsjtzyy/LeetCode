@@ -8,7 +8,9 @@ how to use:
 
 Conditional Variable:
     Lock lock = new ReentrantLock();
-    Condition condVar = lock.newCondition();
+    Condition cv = lock.newCondition();
+    cv.await();    // is always used with lock.lock()/unlock()  判断条件要被lock保护起来，不然会被提前signal而无穷等待, 详见：https://zhuanlan.zhihu.com/p/55123862
+    cv.signal(); cv.signalAll();
 
 
 signalAll() is a method specific to a Condition, whereas notifyAll() is done on any object you're locking on.
