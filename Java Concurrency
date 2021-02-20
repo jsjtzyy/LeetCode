@@ -1,3 +1,11 @@
+Semaphore: We can use semaphores to limit the number of concurrent threads accessing a specific resource.
+constructors:  
+    Semaphore(int num)
+    Semaphore(int num, boolean how)
+how to use:
+    semaphore.acquire() // try to acquire the permit
+    semaphore.release()
+
 [Notes from daily work]:
 1. concurrent set allows concurrent iteration (In other words, it can safely iterate while other thread is attempting to modify this set)
 
