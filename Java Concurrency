@@ -1,10 +1,13 @@
 Semaphore: We can use semaphores to limit the number of concurrent threads accessing a specific resource.
 constructors:  
     Semaphore(int num)
-    Semaphore(int num, boolean how)
+    Semaphore(int num, boolean isFair) // permit is released to the thread that has been waiting for longest time.
 how to use:
     semaphore.acquire() // try to acquire the permit
     semaphore.release()
+    
+    semaphore.acquire(int permits)
+    semaphore.release(int permits) 
 
 Conditional Variable:
     Lock lock = new ReentrantLock();
