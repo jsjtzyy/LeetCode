@@ -15,6 +15,14 @@ Conditional Variable:
     cv.await();    // is always used with lock.lock()/unlock()  判断条件要被lock保护起来，不然会被提前signal而无穷等待, 详见：https://zhuanlan.zhihu.com/p/55123862
     cv.signal(); cv.signalAll();
 
+The signal() method must not be used unless all of these conditions are met:
+   (1) The Condition object is identical for each waiting thread.
+   (2) All threads must perform the same set of operations after waking up, which means that any one thread can be selected to wake up and resume for a single invocation of signal().
+   (3) Only one thread is required to wake upon receiving the signal.
+or all of these conditions are met:
+   (1) Each thread uses a unique Condition object.
+   (2) Each Condition object is associated with the same Lock object.
+When used securely, the signal() method has better performance than signalAll().
 
 signalAll() is a method specific to a Condition, whereas notifyAll() is done on any object you're locking on.
 signalAll() should be used when you're waiting/sleeping with Condition.await(), and notifyAll() when you're using Object.wait() inside a synchronized block.
