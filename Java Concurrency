@@ -27,6 +27,14 @@ When used securely, the signal() method has better performance than signalAll().
 signalAll() is a method specific to a Condition, whereas notifyAll() is done on any object you're locking on.
 signalAll() should be used when you're waiting/sleeping with Condition.await(), and notifyAll() when you're using Object.wait() inside a synchronized block.
 
+One of the drawback of using Future is that you either need to periodically check whether task is completed or not 
+e.g. by using isDone() method or wait until task is completed by calling blocking get() method. 
+There is no way to receive the notification when task is completed. 
+This shortcoming is addressed in CompletableFture, which allows you to schedule some execution when the task is done. 
+CompletableFuture class is introduced in Java 8 and you can perform some task when Future reaches completion stage
+Read more: https://javarevisited.blogspot.com/2015/01/how-to-use-future-and-futuretask-in-Java.html#ixzz6rxGbLU9c
+
+
 [Notes from daily work]:
 1. concurrent set allows concurrent iteration (In other words, it can safely iterate while other thread is attempting to modify this set)
 
