@@ -23,7 +23,8 @@ s.lastIndexOf(‘a’);           // also we can use s.lastIndexOf(String str)
 s.replaceAll(substr, target); // replace all substr to target in s
 
 char[] arr = s.toCharArray();
-String[] arr = s.split(“\\*”) // when delimiter is ‘*’
+String[] arr = s.split("\\*") // when delimiter is '*'
+String[] arr = s.split("\\.") // when delimiter is '.'
 String res = String.join(String delimiter, List<String> data); // use the delimiter to concatenate the string in data.
 Objects.equals(Object a, Object b); // (1)if both parameters are null return true
                                     // (2)if exactly one parameter is null return false
