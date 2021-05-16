@@ -1,7 +1,30 @@
+/*
+         Student Table
+   id  | firstName | lastName | gender | className | grade 
+   ----|-----------|----------|--------|-----------|-------
+    1  |  Jason    |  Bourne  |  male  |  F0903    | 99
+*/
+
+0. create Index:
+   方法1： CREATE INDEX indexName ON table_name (column_name)
+   方法2： ALTER table tableName ADD INDEX indexName(columnName)
+   方法3：
+          CREATE TABLE mytable(  
+                  ID INT NOT NULL,   
+                  username VARCHAR(16) NOT NULL,  
+                  INDEX [indexName] (username(length)) 
+          );  
+
 1. index on single column
 
 ALTER TABLE Student ADD UNIQUE INDEX (firstName);
 
-2. composite index (on multiple column: "firstName", "className")
+2. composite index (on multiple column: "firstName", "className")   # 多个字段按照一定顺序组织的索引, 比如所有相同firstName按照 className order
 
 ALTER TABLE Student ADD INDEX (firstName, className);
+
+3. composite index to speed up search:
+
+SELECT * FROM Student WHERE firstName='Jason' ORDER BY className;
+
+
