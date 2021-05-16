@@ -1,4 +1,7 @@
+1. index on single column
 
-Join
+ALTER TABLE Student ADD UNIQUE INDEX (firstName);
 
-COUNT
+2. composite index (on multiple column: "firstName", "className")
+
+ALTER TABLE Student ADD INDEX (firstName, className);
