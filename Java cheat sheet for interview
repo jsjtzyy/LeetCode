@@ -95,10 +95,10 @@ for(Integer num : map.keySet())			                    // traverse in  1, 2, 3 or
 TreeMap<String, Integer> treeMap = new TreeMap<>();             // sorted in lexicographical order
 TreeMap<Integer, Integer> treeMap = new TreeMap<>(Collections.reverseOrder()); // descending order
 
-treeMap.lowerKey(k);                                        // return the greatest key strictly less than the given key, 
-treeMap.floorKey(k);                                        // return the greatest key less than or equal to key
-treeMap.higherKey(k);                                       // return the greatest key strictly larger than the given key, 
-treeMap.ceilingKey(k);                                      // return the greatest key larger than or equal to key
+treeMap.lowerKey(k);                                        // return the max key that < k 
+treeMap.floorKey(k);                                        // return the min key that >= k
+treeMap.higherKey(k);                                       // return the min key that > k 
+treeMap.ceilingKey(k);                                      // return the max key that <= k
 treeMap.firstKey();                                         // returns the first (lowest) key currently in this map.
 SortedMap<K,V> portionOfTreeMap = treeMap.headMap(K toKey); // Returns a view of the portion of this map whose keys are strictly less than toKey.
 NavigableMap<K,V> map = treeMap.headMap(toKey, true);       // Returns a view of the portion of this map whose keys are less than or equal to toKey.
