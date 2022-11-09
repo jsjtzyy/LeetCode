@@ -1,3 +1,18 @@
+Intrinsic Lock: 通过 synchronized关键字实现， 非公平锁
+Explicit Lock: 通过java.concurrent.locks.Lock接口的实现类（如java.concurrent.locks.ReentrantLock类）实现，既支持公平锁又支持非公平锁
+
+ReentrantLock lock = new ReentrantLock(boolean fair) // true 表示公平锁 (默认是非公平调度)
+ 
+锁的获得隐含着刷新处理器缓存这个动作
+锁的释放隐含着冲刷处理器缓存这个动作
+
+内存重排 ，英文为 Memory Reordering 
+
+Reentrancy： ：一个线程在其持有一个锁的时候能否再次（或者多次）申请该锁
+              如果一个线程持有一个锁的时候还能够继续成功申请该锁，那么我们就称该锁是可重入的（Reentrant），否则我们就称该锁为非可重入的（Non-reentrant）
+
+任何一个对象都有唯一一个与之关联的锁。这种锁被称为 监视器（Monitor）或者内部锁（Intrinsic Lock）
+=========
 Semaphore: We can use semaphores to limit the number of concurrent threads accessing a specific resource.
 constructors:  
     Semaphore(int num)
@@ -81,7 +96,7 @@ Read more: https://javarevisited.blogspot.com/2015/01/how-to-use-future-and-futu
    如果线程没有被其它线程调用 { notify(), notifyAll(),或者被中断，或者等待超时 } 而被唤醒，这种唤醒称为spurious wakup
    [防范 spurious wakeup]:
      用一个loop不停的去测试该线程被唤醒的条件是否满足，不满足则继续等待：
-     synchronized (obj) {             
+     synchronized (obj) {       // 注意这个obj通常采用private final修饰，不能改变: private final Object lock = new Object();
         while (条件不满足){
            obj.wait();  
         }
