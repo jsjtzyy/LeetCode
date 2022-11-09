@@ -12,6 +12,14 @@ Reentrancy： ：一个线程在其持有一个锁的时候能否再次（或者
               如果一个线程持有一个锁的时候还能够继续成功申请该锁，那么我们就称该锁是可重入的（Reentrant），否则我们就称该锁为非可重入的（Non-reentrant）
 
 任何一个对象都有唯一一个与之关联的锁。这种锁被称为 监视器（Monitor）或者内部锁（Intrinsic Lock）
+
+volatile 使用场景:
+1. 使用volatile变量作为状态标志。在该场景中，应用程序的某个状态由一个线程设置，其他线程会读取该状态并以该状态作为其计算的依据.
+2. 使用volatile保障可见性。在该场景中，多个线程共享一个可变状态变量，其中一个线程更新了该变量之后，其他线程在无须加锁的情况下也能够看到该更新.
+3. 使用volatile变量替代锁。volatile关键字并非锁的替代品，但是在一定的条件下它比锁更合适（性能开销小、代码简单)
+
+caveat: volatile关键字只能够对数组引用本身的操作起作用，而无法对数组元素的操作（读取、更新数组元素）起作用。
+        如果要使对数组元素的读、写操作也能触发volatile关键字的作用，可以使用AtomicIntegerArray 、AtomicLongArray 和 AtomicReferenceArray。
 =========
 Semaphore: We can use semaphores to limit the number of concurrent threads accessing a specific resource.
 constructors:  
