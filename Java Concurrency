@@ -20,6 +20,8 @@ volatile 使用场景:
 
 caveat: volatile关键字只能够对数组引用本身的操作起作用，而无法对数组元素的操作（读取、更新数组元素）起作用。
         如果要使对数组元素的读、写操作也能触发volatile关键字的作用，可以使用AtomicIntegerArray 、AtomicLongArray 和 AtomicReferenceArray。
+
+AtomicReference 对引用型变量的有条件更新：更新引用变量时确保该变量的确是我们要修改的那个，即该变量没有被其他线程修改过。
 =========
 Semaphore: We can use semaphores to limit the number of concurrent threads accessing a specific resource.
 constructors:  
