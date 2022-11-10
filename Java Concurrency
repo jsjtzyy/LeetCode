@@ -22,6 +22,28 @@ caveat: volatile关键字只能够对数组引用本身的操作起作用，而�
         如果要使对数组元素的读、写操作也能触发volatile关键字的作用，可以使用AtomicIntegerArray 、AtomicLongArray 和 AtomicReferenceArray。
 
 AtomicReference 对引用型变量的有条件更新：更新引用变量时确保该变量的确是我们要修改的那个，即该变量没有被其他线程修改过。
+
+一个线程只有在持有一个object的内部锁的情况下才能够调用该object的wait方法，因此Object.wait()调用总是放在相应对象所引导的临界区之中。包含上
+述模板代码的方法被称为受保护方法（Guarded Method）
+由于同一个对象的同一个方法（someObject.wait()）可以被多个线程执行，因此一个对象可能存在多个等待线程
+
+synchronized(someObject){
+  while（保护条件不成立）{
+    someObject.wait(); // 调用Object.wait()暂停当前线程, 释放someObject 对应的内部锁
+  }
+  // 代码执行到这里说明保护条件已经满足
+  // 执行目标动作
+  doAction();
+}
+
+synchronized(someObject){
+  updateSharedState()； // 更新等待线程的保护条件涉及的共享变量
+  someObject.notify(); // 唤醒其他线程  只有在持有一个对象的内部锁的情况下才能够执行该对象的notify方法
+}
+
+Object.notify()调用所在的临界区代码执行结束后才会被释放，而Object.notify()本身并不会将这个内部锁释放. 一般尽可能地将Object.notify()调用放在靠近临界区结束
+的地方
+
 =========
 Semaphore: We can use semaphores to limit the number of concurrent threads accessing a specific resource.
 constructors:  
