@@ -44,7 +44,40 @@ synchronized(someObject){
 Object.notify()调用所在的临界区代码执行结束后才会被释放，而Object.notify()本身并不会将这个内部锁释放. 一般尽可能地将Object.notify()调用放在靠近临界区结束
 的地方
 
-=========
+
+java.util.concurent.locks.Condition: Condition接口可作为wait/notify的替代品来实现等待/通知, 可解决过早唤醒问题, 并解决了Object.wait(long)不能区分其返回是否是由等待超时而
+导致的问题。
+
+Condition实例也被称为条件变量（Condition Variable）或者条件队列（Condition Queue）
+每个Condition实例内部都维护了一个存储等待线程的队列
+cond1.signal() 会使cond1 的等待队列中的一个任意线程被唤醒。
+cond1.signalAll()会使cond1的等待队列中的所有线程被唤醒，
+
+private final Lock lock = new ReentrantLock();
+private final Condition condition = lock.newCondition(); // condition 由显示lock产生
+lock.lock();
+try {
+  while （保护条件不成立） {
+    condition.await();
+  }
+  doAction(); // 执行目标动作
+} finally {
+  lock.unlock();
+}
+
+lock.lock();
+try {
+  changeState();   // 更新共享变量
+  condition.signal();
+} finally {
+  lock.unlock();
+}
+
+Condition.awaitUntil (Date deadline) 返回true 表示未到最后期限
+
+
+CountdownLatch: 当需要等待其他线程执行的特定操作结束即可，而不必等待这些线程终止
+========= 
 Semaphore: We can use semaphores to limit the number of concurrent threads accessing a specific resource.
 constructors:  
     Semaphore(int num)
