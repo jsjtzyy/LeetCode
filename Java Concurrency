@@ -55,8 +55,7 @@ cond1.signalAll()会使cond1的等待队列中的所有线程被唤醒，
 
 private final Lock lock = new ReentrantLock();
 private final Condition condition1 = lock.newCondition(); // condition1 由显示lock产生
-private final Condition condition2 = lock.newCondition(); // 同一个lock 可以产生多个conditions
-
+private final Condition condition2 = lock.newCondition(); // 同一个lock 可以产生多个conditions 用于精确唤醒 (每个thread的保护条件不一样)
 
 lock.lock();
 try {
