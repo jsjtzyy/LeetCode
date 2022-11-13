@@ -79,6 +79,10 @@ Condition.awaitUntil (Date deadline) 返回true 表示未到最后期限
 
 
 CountdownLatch: 当需要等待其他线程执行的特定操作结束即可，而不必等待这些线程终止
+
+Blocking Queue vs Non-blocking Queue
+Blocking Queue: threads need to wait for the queue's availability. Producer waits for available space, Consumer waits for available item.
+Non-blocking Queue: threads don't wait because queue throws an exception or returns a special value (null or false)
 ========= 
 Semaphore: We can use semaphores to limit the number of concurrent threads accessing a specific resource.
 constructors:  
