@@ -99,10 +99,12 @@ Spinlock: 当一个线程在获取锁的时候，如果锁已经被其它线程�
           (2) 非自旋锁在获取不到锁的时候会进入阻塞状态，从而进入内核态，当获取到锁的时候需要从内核态恢复，需要线程上下文切换。
               (线程被阻塞后便进入内核（Linux）调度状态，这个会导致系统在用户态与内核态之间来回切换，严重影响锁的性能）
 
+
+// java 中的 Threadpool
+ExecutorService executorService = Executors.newFixedThreadPool(10); // set up a thread pool with 10 threads.
+Future<String> future = executorService.submit(() -> "Hello World");
+String result = future.get(); // wait for task to complete
 ————————————————
-原文作者：it_was
-转自链接：https://learnku.com/articles/49689
-版权声明：著作权归作者所有。商业转载请联系作者获得授权，非商业转载请保留以上作者信息和原文链接。
 
 Semaphore: We can use semaphores to limit the number of concurrent threads accessing a specific resource.
 constructors:  
