@@ -104,6 +104,23 @@ Spinlock: 当一个线程在获取锁的时候，如果锁已经被其它线程�
 ExecutorService executorService = Executors.newFixedThreadPool(10); // set up a thread pool with 10 threads.
 Future<String> future = executorService.submit(() -> "Hello World");
 String result = future.get(); // wait for task to complete
+
+==========
+java concurrent 库中经常见到如下写法
+public void someMethod() {
+   final ReentrantLock lock = this.lock;
+   lock.lock();
+   ...
+}
+
+为什么要这样做呢？
+
+原因一 为了加快访问速度；
+将全局变量赋值给方法的一个局部变量，访问的时候直接在线程栈里面取，比访问成员变量速度要快，读取栈里面的变量只需要一条指令，读取成员变量则需要两条指令；
+
+原因二 为了安全；
+如果只是为了访问速度快，那么直接使用一个普通的局部变量即可，不需要加final，加了final原因就是为了多线程下的线程安全。
+final的作用，一经初始化就无法被更改，并且保证对象访问的内存重排序，保证对象的可见性，更详细内容见这里 
 ————————————————
 
 Semaphore: We can use semaphores to limit the number of concurrent threads accessing a specific resource.
