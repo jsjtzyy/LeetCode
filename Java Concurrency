@@ -122,7 +122,20 @@ public void someMethod() {
 如果只是为了访问速度快，那么直接使用一个普通的局部变量即可，不需要加final，加了final原因就是为了多线程下的线程安全。
 final的作用，一经初始化就无法被更改，并且保证对象访问的内存重排序，保证对象的可见性，更详细内容见这里 
 ————————————————
+CAS存在的缺点:
 
+（1）只能保证一个共享变量的原子性
+CAS不像synchronized和RetranLock一样可以保证一段代码和多个变量的同步。对于多个共享变量操作是CAS是无法保证的，这时候必须使用加锁来是实现。
+
+（2）存在性能开销问题
+由于CAS是一个自旋操作，如果长时间的CAS不成功会给CPU带来很大的开销。
+
+（3）ABA问题
+因为CAS是通过检查值有没有发生改变来保证原子性的，假若一个变量V的值为A，线程1和线程2同时都读取到了这个变量的值A，此时线程1将V的值改为了B，然后又改回了A，期间线程2一直没有抢到CPU时间片。知道线程1将V的值改回A后线程2才得到执行。那么此时，线程2并不知道V的值曾经改变过。这个问题就被成为ABA问题。
+ABA问题的解决其实也容易处理，即添加一个版本号，更次更新值同时也更新版本号即可。上文中提到的AtomicStampedReference就是用来解决ABA问题的。
+
+链接：https://juejin.cn/post/6977993272538955806
+---------------------
 Semaphore: We can use semaphores to limit the number of concurrent threads accessing a specific resource.
 constructors:  
     Semaphore(int num)
