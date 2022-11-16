@@ -3,8 +3,8 @@ Explicit Lock: 通过java.concurrent.locks.Lock接口的实现类（如java.conc
 
 ReentrantLock lock = new ReentrantLock(boolean fair) // true 表示公平锁 (默认是非公平调度)
  
-锁的获得隐含着刷新处理器缓存这个动作
-锁的释放隐含着冲刷处理器缓存这个动作
+锁的获得隐含着刷新处理器缓存这个动作 load from memory to cache
+锁的释放隐含着冲刷处理器缓存这个动作 flush cache to memory
 
 内存重排 ，英文为 Memory Reordering 
 
