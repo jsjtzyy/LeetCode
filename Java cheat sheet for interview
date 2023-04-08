@@ -494,3 +494,13 @@ read()
 and reads a maximum of length bytes into the array from that position. Again, the read(byte[], int offset, int length) method 
 returns an int telling how many bytes were actually read into array, remember to check this value before processing the read bytes.
 
+
+
+
+/**********DEEP CHANGES************/
+- Iterate through the character of string
+for(i=0,i<n,i++){str.charAt(i)}
+
+
+
+
