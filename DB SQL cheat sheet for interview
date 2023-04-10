@@ -1,10 +1,38 @@
-/*
-         Student Table
-   id  | firstName | lastName | gender | className | grade 
-   ----|-----------|----------|--------|-----------|-------
-    1  |  Jason    |  Bourne  |  male  |  F0903    | 99
-*/
+WITH clause:
+SQL WITH clause: also known as common table expression (CTE)
+下面是一个例子
+         --CTE
+         WITH expression_name_1 (column_1, column_2,…,column_n)   -- expression_name_1 is virtual temporary data set, column_1,2 ... are column names that can be used in subsequent query steps
+         AS
+           (CTE query definition 1),
+         expression_name_2 (column_1, column_2,…,column_n)
+         AS
+           (CTE query definition 2)
 
+         --Final query using CTE
+         SELECT expression_A, expression_B, ...
+         FROM expression_name_2
+         
+The general sequence of steps to execute a WITH clause is:
+   1. Initiate the WITH
+   2. Specify the expression name for the to-be-defined query.
+   3. Optional: Specify column names separated by commas.
+   4. After assigning the name of the expression, enter the AS command. The expressions, in this case, are the named result sets that you will use later in the main query to refer to the CTE.
+   5. Write the query required to produce the desired temporary data set.
+   6. If working with more than one CTEs or WITH clauses, initiate each subsequent one separated by a comma and repeat steps 2-4. Such an arrangement is also called a nested WITH clause.
+   7. Reference the expressions defined above in a subsequent query using SELECT, INSERT, UPDATE, DELETE, or MERGE
+
+更多具体案例参见: https://www.educba.com/sql-with-clause/
+
+
+Index:
+------------------------------------------------------------
+|                       Student Table                      |
+|----------------------------------------------------------|
+|  id  | firstName | lastName | gender | className | grade |
+|------|-----------|----------|--------|-----------|-------|
+|   1  |  Jason    |  Bourne  |  male  |  F0903    | 99    |
+------------------------------------------------------------
 0. create Index:
    方法1： CREATE INDEX indexName ON table_name (column_name)
    方法2： ALTER table tableName ADD INDEX indexName(columnName)
@@ -14,29 +42,20 @@
                   username VARCHAR(16) NOT NULL,  
                   INDEX [indexName] (username(length)) 
           );  
-
-1. index on single column
-
-ALTER TABLE Student ADD UNIQUE INDEX (firstName);
-
-2. composite index (on multiple column: "firstName", "className")   # 多个字段按照一定顺序组织的索引, 比如所有相同firstName按照 className order
-
-ALTER TABLE Student ADD INDEX (firstName, className);
-
-3. composite index to speed up search:
-
-SELECT * FROM Student WHERE firstName='Jason' ORDER BY className;
-
+         1. index on single column
+                 例：ALTER TABLE Student ADD UNIQUE INDEX (firstName);
+         2. composite index (on multiple column: "firstName", "className")   # 多个字段按照一定顺序组织的索引, 比如所有相同firstName按照 className order
+                 例：ALTER TABLE Student ADD INDEX (firstName, className);
+         3. composite index to speed up search:
+                 例：SELECT * FROM Student WHERE firstName='Jason' ORDER BY className;
 
 View:
-1）视图它是虚拟的表，不占用存储空间，所以如果是我们在进行复杂的查询过程，不想进行表套表的话，可以在中间生成视图，然后在下一步直接引用视图
- （当然，你也可以生成中间表。但是假如你的存储空间只有10w，生成的中间表需要占用8w的存储空间，生成表后你剩下2w想干啥，此时通过生成view就可以避免了）。
-  这是视图的第一个好处。
-
-2）视图view是动态的。创建的视图来源于其他的实实在在的表，当随着时间的更新，表发生变化时，我们的视图所反应的内容其实也是变化的。
-   而我们所生成的中间表固定了就是固定了，不会随着基表的变化而改变。因此，如果我们做任务所需要的表格是不断更新的，此时我们在中间创建视图是正确的选择，因为视图可以做到与时俱进。
-
-3）一般不提倡修改视图的数据，因此创建时可以使用with read only关键字创建只读视图， 另PostgreSQL 视图是只读的
+  1）视图它是虚拟的表，不占用存储空间，所以如果是我们在进行复杂的查询过程，不想进行表套表的话，可以在中间生成视图，然后在下一步直接引用视图
+   （当然，你也可以生成中间表。但是假如你的存储空间只有10w，生成的中间表需要占用8w的存储空间，生成表后你剩下2w想干啥，此时通过生成view就可以避免了）。
+    这是视图的第一个好处。
+  2）视图view是动态的。创建的视图来源于其他的实实在在的表，当随着时间的更新，表发生变化时，我们的视图所反应的内容其实也是变化的。
+     而我们所生成的中间表固定了就是固定了，不会随着基表的变化而改变。因此，如果我们做任务所需要的表格是不断更新的，此时我们在中间创建视图是正确的选择，因为视图可以做到与时俱进。
+  3）一般不提倡修改视图的数据，因此创建时可以使用with read only关键字创建只读视图， 另PostgreSQL 视图是只读的
    
 Procedure:
 一组为了完成特定功能的SQL 语句集，存储在数据库中，经过第一次编译后再次调用不需要再次编译，用户通过指定Procedure的名字并给出参数（如果该存储过程带有参数）来调用Procedure
@@ -48,15 +67,12 @@ Procedure:
 Trigger:
    触发器（trigger）是种特殊的存储过程(Procedure)，它的执行不是由程序调用，也不需要手动操作，它是由事件来触发
    触发器的事件，是由对表进行增删改操作所触发的。当对一个数据库或表进行增删改（ Insert，Delete，Update）的时就会激活触发器
-   
-两种类型: After触发器 和Instead Of触发器
+   两种类型: After触发器 和Instead Of触发器
+         After触发器:       在记录已经改变完之后（after），才会被激活执行，它主要是用于记录变更后的处理或检查，一旦发现错误，也可以用Rollback Transaction语句来回滚本次的操作
+         Instead Of触发器:  一般是用来取代原本的操作，在记录变更之前发生的，它并不去执行原来SQL语句里的操作（Insert、Update、Delete），而去执行触发器本身所定义的操作
 
-After触发器:       在记录已经改变完之后（after），才会被激活执行，它主要是用于记录变更后的处理或检查，一旦发现错误，也可以用Rollback Transaction语句来回滚本次的操作
-Instead Of触发器:  一般是用来取代原本的操作，在记录变更之前发生的，它并不去执行原来SQL语句里的操作（Insert、Update、Delete），而去执行触发器本身所定义的操作
-
-每个DML触发器都分配有两个特殊的表，一个是Inserted表，一个是Deleted表。
-它们两个存在于数据库服务器的内存中，是由系统管理的逻辑表，是两个临时表，而不是真正存储在数据库中的物理表。用户对这两个表只有读取的权限，没有修改的权限。
-
-Inserted和Deleted两个表的作用：
-Inserted：对于插入记录操作来说，插入表里存放的是要插入的数据；对于更新记录操作来说，插入表里存放的是要更新的记录。
-Deleted：对于更新记录操作来说，删除表里存放的是被更新记录；对于删除记录操作来说，删除表里存入的是被删除的旧记录。
+   每个DML触发器都分配有两个特殊的表，一个是Inserted表，一个是Deleted表。
+   它们两个存在于数据库服务器的内存中，是由系统管理的逻辑表，是两个临时表，而不是真正存储在数据库中的物理表。用户对这两个表只有读取的权限，没有修改的权限。
+   Inserted和Deleted两个表的作用：
+         Inserted：对于插入记录操作来说，插入表里存放的是要插入的数据；对于更新记录操作来说，插入表里存放的是要更新的记录。
+         Deleted：对于更新记录操作来说，删除表里存放的是被更新记录；对于删除记录操作来说，删除表里存入的是被删除的旧记录。
