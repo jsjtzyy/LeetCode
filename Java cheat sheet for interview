@@ -46,6 +46,7 @@ Arrays.sort(arr);
 Arrays.fill(arr, -1);           // initialize all array elements with value -1
 public void helper(int[] nums);
 helper(new int[]{1, 2});        // initialize array in method
+Arrays.equals(arr1,arr2);
 
 /********************** HashMap (TreeMap), HashSet (TreeSet)***********************/
 HashMap<Character, Integer> map = new HashMap<Character, Integer>();
